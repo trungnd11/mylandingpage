@@ -1,9 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
 import "./container.scss";
 import avatar from "../../static/image/avatar.jpg";
 import Home from "../../page/home/Home";
-import About from "../../page/about/About";
 
 export default function Container() {
   return (

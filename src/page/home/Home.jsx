@@ -1,6 +1,6 @@
 /* eslint-disable react/style-prop-object */
 /* eslint-disable no-restricted-globals */
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import ReactTextTransition from "react-text-transition";
 import './home.scss';
 
@@ -14,9 +14,6 @@ export default function Home() {
     const valueTime = setTimeout(() => {
       setText({ value: "Developer" })
     }, 2000);
-
-    console.log("render", text.value);
-
     return () => clearTimeout(valueTime);
   }, [text]);
 
@@ -145,11 +142,10 @@ export default function Home() {
     });
 
     };
-  }, []);
+  }, [height, width]);
 
   return (
     <div className="wapper-home">
-      
       <div className="water-effect jquery-ripples">
         <canvas
           id='canvas'
