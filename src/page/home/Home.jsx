@@ -1,14 +1,31 @@
-import React, { useEffect, useRef } from 'react';
+/* eslint-disable react/style-prop-object */
+/* eslint-disable no-restricted-globals */
+import React, { useEffect, useState } from 'react';
+import ReactTextTransition from "react-text-transition";
 import './home.scss';
 
 export default function Home() {
+  const height = screen.height;
+  const width = screen.width;
+
+  const [text, setText] = useState({ value: 'Developer' });
+
+  useEffect(() => {
+    const valueTime = setTimeout(() => {
+      setText({ value: "Developer" })
+    }, 2000);
+
+    console.log("render", text.value);
+
+    return () => clearTimeout(valueTime);
+  }, [text]);
 
   useEffect(() => {
     return () => {
-     const canvas = document.querySelector("#canvas");
+    const canvas = document.querySelector("#canvas");
     const context = canvas.getContext("2d");
-    const H = 943;
-    const W = 1140;
+    const H = height;
+    const W = width;
     let dots = [];
     canvas.width = W;
     canvas.height = H;
@@ -22,8 +39,8 @@ export default function Home() {
       range: 150
     };
     const gradient = context.createLinearGradient(0, 0, W, H);
-    gradient.addColorStop(0, "#7fb6f4c7");
-    gradient.addColorStop(1, "#648cf2");
+    gradient.addColorStop(0, "#5ca6faf8");
+    gradient.addColorStop(1, "#8127f7b2");
 
     class Dot {
       constructor(x, y, vx, vy, r) {
@@ -132,6 +149,7 @@ export default function Home() {
 
   return (
     <div className="wapper-home">
+      
       <div className="water-effect jquery-ripples">
         <canvas
           id='canvas'
@@ -140,28 +158,27 @@ export default function Home() {
           style={{ position: 'absolute', inset: '0px', zIndex: '1' }}
         />
       </div>
-      <div className="wapper-content">
-        <div className="content">
-          <h5>Hello, my name is <strong>Trung</strong></h5>
-          <h1>
-            <span>I'm a </span>
-            <span className='waviy'>
-              <i>D</i>
-              <i>e</i>
-              <i>v</i>
-              <i>e</i>
-              <i>l</i>
-              <i>o</i>
-              <i>p</i>
-              <i>e</i>
-              <i>r</i>
-            </span>
-          </h1>
-          <p>I'm a Full-Stack Web Developer with extensive      experience for over 8 years. My expertise is to create  and design Websites, Apps, Mockups and many more...
-          </p>
-          <button class="custom-btn btn-12"><span>Click!</span><span>Portfolio</span></button>
-          <button class="custom-btn btn-12"><span>Click!</span><span>Hire Me</span></button>
-        </div>
+      <div className="content">
+        <h5>Hello, my name is <strong>Trung</strong></h5>
+        <h1>
+          <span>I'm a </span>
+          <span className='waviy'>
+            {text && `${text.value}`.split("").map((n, i) => (
+            <ReactTextTransition
+              key={i}
+              children={n}
+              delay={i * 200}
+              className="big"
+              overflow
+              inline
+            />
+          ))}
+          </span>
+        </h1>
+        <p>I'm a Full-Stack Web Developer with extensive experience for over 2 years. My expertise is to create  and design Websites, Apps, Mockups and many more...
+        </p>
+        <button className="custom-btn btn-12"><span>Click!</span><span>Project</span></button>
+        <button className="custom-btn btn-12"><span>Click!</span><span>Hire Me</span></button>
       </div>
     </div>
   );
