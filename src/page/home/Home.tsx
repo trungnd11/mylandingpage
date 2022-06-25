@@ -1,29 +1,21 @@
 /* eslint-disable react/style-prop-object */
 /* eslint-disable no-restricted-globals */
-import { useEffect, useState } from 'react';
-import ReactTextTransition from "react-text-transition";
+import { useEffect, useRef } from 'react';
 import './home.scss';
 
 export default function Home() {
   const height = screen.height;
   const width = screen.width;
 
-  const [text, setText] = useState({ value: 'Developer' });
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
 
   useEffect(() => {
-    const valueTime = setTimeout(() => {
-      setText({ value: "Developer" })
-    }, 2000);
-    return () => clearTimeout(valueTime);
-  }, [text]);
-
-  useEffect(() => {
-    return () => {
-    const canvas = document.querySelector("#canvas");
+    const canvas: any = document.querySelector("#canvas");
     const context = canvas.getContext("2d");
     const H = height;
     const W = width;
-    let dots = [];
+    let dots: any = [];
     canvas.width = W;
     canvas.height = H;
 
@@ -40,7 +32,13 @@ export default function Home() {
     gradient.addColorStop(1, "#8127f7b2");
 
     class Dot {
-      constructor(x, y, vx, vy, r) {
+      x: any;
+      y: any;
+      vx: any;
+      vy: any;
+      r: any;
+      dotsNears: any;
+      constructor(x: any, y: any, vx: any, vy: any, r: any) {
         this.x = x;
         this.y = y;
         this.vx = vx;
@@ -54,7 +52,7 @@ export default function Home() {
         context.arc(this.x, this.y, this.r, 0, Math.PI * 2, false);
         context.fillStyle = DOT.color;
         context.fill();
-        this.dotsNears.forEach((dotNear) => {
+        this.dotsNears.forEach((dotNear: any) => {
           context.beginPath();
           context.moveTo(this.x, this.y);
           context.lineTo(dotNear.x, dotNear.y);
@@ -64,7 +62,7 @@ export default function Home() {
         });
       }
 
-      update(dots) {
+      update(dots: any) {
         if (this.x - this.r >= W) {
           this.x = 0 - this.r;
           this.vy = (Math.random() - 0.5) * DOT.vY;
@@ -86,7 +84,7 @@ export default function Home() {
         this.y += this.vy;
 
         this.dotsNears = [];
-        dots.forEach((dot) => {
+        dots.forEach((dot: any) => {
           if (dot === this) return;
           const d = Math.sqrt((this.x - dot.x) ** 2 + (this.y - dot.y) ** 2);
           if (d < DOT.range) {
@@ -115,14 +113,14 @@ export default function Home() {
 
       if (dots.length > DOT.count) {
         dots = dots.filter(
-          (dot) =>
+          (dot: any) =>
             dot.x + dot.r > 0 &&
             dot.x - dot.r < W &&
             dot.y + dot.r > 0 &&
             dot.y - dot.r < H
         );
       }
-      dots.forEach((dot) => {
+      dots.forEach((dot: any) => {
         dot.update(dots);
       });
     }
@@ -130,7 +128,7 @@ export default function Home() {
     init();
     animate();
 
-    canvas.addEventListener("click", function (event) {
+    canvas.addEventListener("click", function (event: any) {
       for (let i = 0; i < 3; i++) {
         const r = Math.random() * 3 + 3;
         const positionX = event.offsetX;
@@ -140,41 +138,51 @@ export default function Home() {
         dots.push(new Dot(positionX, positionY, vx, vy, r));
       }
     });
-
-    };
+    
   }, [height, width]);
 
   return (
     <div className="wapper-home">
       <div className="water-effect jquery-ripples">
         <canvas
-          id='canvas'
+          ref={canvasRef}
+          id="canvas"
           width="1140"
           height="943"
-          style={{ position: 'absolute', inset: '0px', zIndex: '1' }}
+          style={{ position: "absolute", inset: "0px", zIndex: "1" }}
         />
       </div>
       <div className="content">
-        <h5>Hello, my name is <strong>Trung</strong></h5>
+        <h5>
+          Hello, my name is <strong>Trung</strong>
+        </h5>
         <h1>
           <span>I'm a </span>
-          <span className='waviy'>
-            {text && `${text.value}`.split("").map((n, i) => (
-            <ReactTextTransition
-              key={i}
-              children={n}
-              delay={i * 200}
-              className="big"
-              overflow
-              inline
-            />
-          ))}
+          <span className="waviy">
+            <span className="run-text">D</span>
+            <span className="run-text">e</span>
+            <span className="run-text">v</span>
+            <span className="run-text">e</span>
+            <span className="run-text">l</span>
+            <span className="run-text">o</span>
+            <span className="run-text">p</span>
+            <span className="run-text">e</span>
+            <span className="run-text">r</span>
           </span>
         </h1>
-        <p>I'm a Full-Stack Web Developer with extensive experience for over 2 years. My expertise is to create  and design Websites, Apps, Mockups and many more...
+        <p>
+          I'm a Full-Stack Web Developer with extensive experience for over 8
+          years. My expertise is to create and design Websites, Apps, Mockups
+          and many more...
         </p>
-        <button className="custom-btn btn-12"><span>Click!</span><span>Project</span></button>
-        <button className="custom-btn btn-12"><span>Click!</span><span>Hire Me</span></button>
+        <button className="custom-btn btn-12">
+          <span>Click!</span>
+          <span>Project</span>
+        </button>
+        <button className="custom-btn btn-12">
+          <span>Click!</span>
+          <span>Hire Me</span>
+        </button>
       </div>
     </div>
   );
