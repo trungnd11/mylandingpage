@@ -4,8 +4,8 @@ import { useEffect, useRef } from 'react';
 import './home.scss';
 
 export default function Home() {
-  const height = screen.height;
-  const width = screen.width;
+  const height = 800;
+  const width = screen.width  * 80 / 100;
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -147,8 +147,6 @@ export default function Home() {
         <canvas
           ref={canvasRef}
           id="canvas"
-          width="1140"
-          height="943"
           style={{ position: "absolute", inset: "0px", zIndex: "1" }}
         />
       </div>

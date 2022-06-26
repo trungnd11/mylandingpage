@@ -1,0 +1,55 @@
+.wapper-contact {
+  background-image: url(../../static/image/map.png);
+
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    padding: 30px 0;
+
+    .contact-content {
+      padding: 30px;
+      width: 25%;
+      text-align: center;
+
+      i {
+        font-size: 40px;
+        color: blue;
+        animation: wiggle 4s 2s infinite;
+      }
+
+      ul {
+        padding-left: 0;
+        list-style-type: none;
+      }
+    }
+  }
+}
+@keyframes wiggle {
+  5%,
+  50% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(0.9);
+  }
+  15% {
+    transform: scale(1.15);
+  }
+  20% {
+    transform: scale(1.15) rotate(-5deg);
+  }
+  25% {
+    transform: scale(1.15) rotate(5deg);
+  }
+  30% {
+    transform: scale(1.15) rotate(-3deg);
+  }
+  35% {
+    transform: scale(1.15) rotate(2deg);
+  }
+  40% {
+    transform: scale(1.15) rotate(0);
+  }
+}

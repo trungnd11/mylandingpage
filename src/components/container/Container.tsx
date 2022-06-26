@@ -2,6 +2,11 @@
 import "./container.scss";
 import avatar from "../../static/image/avatar.jpg";
 import Home from "../../page/home/Home";
+import About from "../../page/about/About";
+import Experience from "../../page/experience/Experience";
+import Services from "../../page/services/Services";
+import Portfolio from "../../page/portfolio/Portfolio";
+import Contact from "../../page/contact/Contact";
 
 export default function Container() {
   return (
@@ -43,15 +48,11 @@ export default function Container() {
               </li>
               <li className="item">
                 <i className="fa-solid fa-file-lines" />
-                Portfolio
+                Project
               </li>
               <li className="item">
                 <i className="fa-solid fa-user-check" />
-                Clients
-              </li>
-              <li className="item">
-                <i className="fa-brands fa-blogger" />
-                Blog
+                Contact
               </li>
             </ul>
           </div>
@@ -79,6 +80,11 @@ export default function Container() {
       </div>
       <div className="wapper-content">
         <Home />
+        <About />
+        <Experience />
+        <Services />
+        <Portfolio />
+        <Contact />
       </div>
     </div>
   );
