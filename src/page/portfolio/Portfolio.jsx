@@ -147,8 +147,8 @@ export default function Portfolio() {
         </div>
         <div className="img-portfolio">
           {listImg.map((item) => (
-            <Radium.StyleRoot className="works-item">
-              <div className="work-wapper" key={item.id} style={animation.bounce}>
+            <Radium.StyleRoot className="works-item" key={item.id}>
+              <div className="work-wapper" style={animation.bounce}>
                 <div className="item-overlay">
                   <div className="category">{item.language}</div>
                   <img src={item.img} alt="" />
