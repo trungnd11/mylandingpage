@@ -1,12 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import "./about.scss";
+import avatar from "../../static/image/avatar2.jpg";
 
 export default function About() {
   return (
-    <div className="about-wapper">
+    <div id="about" className="about-wapper">
       <div className="about-img">
         <img
-          src="https://newtemplate.net/demo/resume/template/side-menu-wave/images/about-image.png"
+          src={avatar}
           alt=""
         />
       </div>
@@ -42,10 +43,10 @@ export default function About() {
             <span>From:</span> <p>Hanoi</p>
           </li>
         </ul>
-        <a className="btn btn-wiggle" href="#">
-          <span>Resum</span>
+        <a className="btn btn-wiggle" href="#contact">
+          <span>Contact</span>
         </a>
-        <a className="btn btn-pulse" href="#">
+        <a className="btn btn-pulse" href="#experience">
           <span>Experience</span>
         </a>
       </div>

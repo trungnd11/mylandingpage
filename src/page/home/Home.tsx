@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import './home.scss';
 
 export default function Home() {
-  const height = 800;
+  const height = screen.height / 1.5;
   const width = screen.width  * 80 / 100;
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -142,7 +142,7 @@ export default function Home() {
   }, [height, width]);
 
   return (
-    <div className="wapper-home">
+    <div id='home' className="wapper-home">
       <div className="water-effect jquery-ripples">
         <canvas
           ref={canvasRef}
@@ -173,14 +173,14 @@ export default function Home() {
           years. My expertise is to create and design Websites, Apps, Mockups
           and many more...
         </p>
-        <button className="custom-btn btn-12">
+        <a href='#project' className="custom-btn btn-12">
           <span>Click!</span>
           <span>Project</span>
-        </button>
-        <button className="custom-btn btn-12">
+        </a>
+        <a href='#about' className="custom-btn btn-12">
           <span>Click!</span>
           <span>Hire Me</span>
-        </button>
+        </a>
       </div>
     </div>
   );

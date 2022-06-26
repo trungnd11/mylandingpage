@@ -7,6 +7,7 @@
   .about-img {
     max-width: 50%;
     padding: 16px;
+    overflow: hidden;
     img {
       width: 100%;
     }
@@ -47,6 +48,9 @@
         p {
           display: inline-block;
         }
+        a {
+          text-decoration: none;
+        }
       }
     }
 
@@ -61,8 +65,8 @@
       border-radius: 6px;
       padding: 10px 20px;
       margin: 10px;
-      box-shadow: 0 2px 5px 0 rgba(3,6,26,0.15);
-      transition: .5s all ease-in-out;
+      box-shadow: 0 2px 5px 0 rgba(3, 6, 26, 0.15);
+      transition: 0.5s all ease-in-out;
       min-width: 100px;
       text-align: center;
       &:hover {
@@ -85,35 +89,35 @@
 }
 
 @keyframes wiggle {
-	5%,
-	50% {
-		transform: scale(1);
-	}
-	10% {
-		transform: scale(0.9);
-	}
-	15% {
-		transform: scale(1.15);
-	}
-	20% {
-		transform: scale(1.15) rotate(-5deg);
-	}
-	25% {
-		transform: scale(1.15) rotate(5deg);
-	}
-	30% {
-		transform: scale(1.15) rotate(-3deg);
-	}
-	35% {
-		transform: scale(1.15) rotate(2deg);
-	}
-	40% {
-		transform: scale(1.15) rotate(0);
-	}
+  5%,
+  50% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(0.9);
+  }
+  15% {
+    transform: scale(1.15);
+  }
+  20% {
+    transform: scale(1.15) rotate(-5deg);
+  }
+  25% {
+    transform: scale(1.15) rotate(5deg);
+  }
+  30% {
+    transform: scale(1.15) rotate(-3deg);
+  }
+  35% {
+    transform: scale(1.15) rotate(2deg);
+  }
+  40% {
+    transform: scale(1.15) rotate(0);
+  }
 }
 
 @keyframes pulse {
   to {
-    box-shadow: 0 0 0 18px rgba(255, 255, 255, 0); 
+    box-shadow: 0 0 0 18px rgba(255, 255, 255, 0);
   }
 }

@@ -103,7 +103,7 @@ export default function Portfolio() {
   };
 
   return (
-    <div id="portfolio" className="wapper-portfolio">
+    <div id="project" className="wapper-portfolio">
       <div className="container">
         <div className="portfolio-heading">
           <h2 className="portfolio-title">My Project</h2>

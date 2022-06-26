@@ -9,7 +9,7 @@ export default function Experience() {
     <div id="experience" className="experience-area">
       <div className="container">
         <div className="exp-content">
-          <h5 className="subtitle">Having 2 years Experience</h5>
+          <h5 className="subtitle">Having 6 years Experience</h5>
           <h3>
             Amazing <span>experience</span> with those companies
           </h3>
@@ -25,19 +25,19 @@ export default function Experience() {
         <div className="exp-container">
           <div className="exp-block">
             <img className="img-icon" src={exp1} alt="" />
-            <h4>Themeforest</h4> <h6>2016 - Present</h6>
+            <h4>Foxcom</h4> <h6>2014 - 2015</h6>
           </div>
           <div className="exp-block">
             <img className="img-icon" src={exp2} alt="" />
-            <h4>Themeforest</h4> <h6>2016 - Present</h6>
+            <h4>Canon</h4> <h6>2016 - 3 months</h6>
           </div>
           <div className="exp-block">
             <img className="img-icon" src={exp3} alt="" />
-            <h4>Themeforest</h4> <h6>2016 - Present</h6>
+            <h4>Samsung</h4> <h6>2016 - 2021</h6>
           </div>
           <div className="exp-block">
             <img className="img-icon" src={exp4} alt="" />
-            <h4>Themeforest</h4> <h6>2016 - Present</h6>
+            <h4>AC Tech</h4> <h6>2021 - Present</h6>
           </div>
         </div>
       </div>

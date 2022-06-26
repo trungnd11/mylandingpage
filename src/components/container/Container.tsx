@@ -32,27 +32,27 @@ export default function Container() {
             <ul className="lists-menu">
               <li className="item">
                 <i className="fa-solid fa-house" />
-                Home
+                <a href="#home">Home</a>
               </li>
               <li className="item">
                 <i className="fa-solid fa-address-card" />
-                About
+                <a href="#about">About</a>
               </li>
               <li className="item">
                 <i className="fa-solid fa-clock-rotate-left" />
-                Experience
+                <a href="#experience">Experience</a>
               </li>
               <li className="item">
                 <i className="fa-solid fa-gear" />
-                Services
+                <a href="#services">Services</a>
               </li>
               <li className="item">
                 <i className="fa-solid fa-file-lines" />
-                Project
+                <a href="#project">Project</a>
               </li>
               <li className="item">
                 <i className="fa-solid fa-user-check" />
-                Contact
+                <a href="#contact">Contact</a>
               </li>
             </ul>
           </div>

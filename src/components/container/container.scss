@@ -96,10 +96,19 @@ $colorWhite: #fff;
           border-bottom: 1px solid #ccc;
           padding: 15px 10px;
           transition: 0.6s;
+          a {
+            text-decoration: none;
+            color: #000;
+          }
+
           &:hover {
             color: $mainColor;
             border-color: $mainColor;
             transform: translateX(20px);
+
+            a {
+              color: $mainColor;
+            }
           }
           i {
             margin-right: 8px;
