@@ -37,7 +37,7 @@ export default function About() {
             </p>
           </li>
           <li>
-            <span>Age:</span> <p>25</p>
+            <span>Age:</span> <p>26</p>
           </li>
           <li>
             <span>From:</span> <p>Hanoi</p>

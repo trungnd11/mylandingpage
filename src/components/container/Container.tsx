@@ -7,8 +7,19 @@ import Experience from "../../page/experience/Experience";
 import Services from "../../page/services/Services";
 import Portfolio from "../../page/portfolio/Portfolio";
 import Contact from "../../page/contact/Contact";
+import ScrollTop from "../scrollTop/ScrollTop";
+import { useEffect, useState } from "react";
 
 export default function Container() {
+
+  const [showScroll, setshowScroll] = useState<boolean>();
+
+  useEffect(() => {
+    window.addEventListener("scroll", (e) => {
+      window.scrollY > 500 ? setshowScroll(true) : setshowScroll(false); 
+    });
+  }, [])
+
   return (
     <div className="container-profile">
       <div className="slideBar">
@@ -85,6 +96,7 @@ export default function Container() {
         <Services />
         <Portfolio />
         <Contact />
+        {showScroll && <ScrollTop />}
       </div>
     </div>
   );
