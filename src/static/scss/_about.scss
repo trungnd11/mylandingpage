@@ -33,6 +33,9 @@
     }
 
     .section-heading {
+      @include Responsive(XS) {
+        text-align: center;
+      }
       h2 {
         font-weight: 800;
         font-size: 36px;

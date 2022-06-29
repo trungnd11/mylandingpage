@@ -81,12 +81,17 @@
       }
     }
 
+    .wapper-btn {
+      display: flex;
+      justify-content: space-evenly;
+      margin-top: 10px;
+    }
+
     .custom-btn {
       width: 130px;
       height: 40px;
       color: #fff;
       border-radius: 10px;
-      padding: 10px 25px;
       font-family: "Lato", sans-serif;
       font-weight: 500;
       background: transparent;
@@ -100,22 +105,13 @@
     }
 
     .btn-12 {
-      position: relative;
-      right: 20px;
-      bottom: 20px;
       border: none;
       box-shadow: none;
-      width: 130px;
-      height: 40px;
       line-height: 42px;
       -webkit-perspective: 230px;
       perspective: 230px;
-      margin-right: 10px;
 
       @include Responsive(XS) {
-        width: 80px;
-        height: 40px;
-        bottom: 0;
       }
     }
     .btn-12 span {
@@ -187,6 +183,7 @@
 
   @include Responsive(XS) {
     height: calc(100vh / 1.5);
+    position: relative;
   }
 }
 

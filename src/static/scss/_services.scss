@@ -17,12 +17,17 @@
       text-align: center;
       margin-bottom: 65px;
 
+      @include Responsive(XS) {
+        margin-bottom: 40px;
+      }
+
       h2 {
         margin: 0;
         font-weight: 800;
         font-size: 38px;
         margin-bottom: 10px;
       }
+      
     }
 
     .services-content {
@@ -44,8 +49,7 @@
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 
         @include Responsive(XS) {
-          width: 82%;
-          padding: 20px;
+          width: inherit;
           margin: 16px;
         }
 

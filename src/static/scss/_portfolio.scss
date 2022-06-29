@@ -100,7 +100,7 @@
       border-radius: 6px;
 
       @include Responsive(XS) {
-        width: 91%;
+        width: inherit;
         margin: 16px;
       }
 

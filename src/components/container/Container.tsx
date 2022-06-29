@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import avatar from "../../static/image/avatar.jpg";
 import Home from "../../page/home/Home";
@@ -7,11 +8,19 @@ import Services from "../../page/services/Services";
 import Portfolio from "../../page/portfolio/Portfolio";
 import Contact from "../../page/contact/Contact";
 import ScrollTop from "../scrollTop/ScrollTop";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import NavBarMobile from "../../page/navBarMobile/NavBarMobile";
 
 export default function Container() {
 
   const [showScroll, setshowScroll] = useState<boolean>();
+  const navBarRef = useRef();
+
+  const closeNavbar = (): void => {
+    console.log(navBarRef.current);
+    const show: any = navBarRef.current;
+    show();
+  }
 
   useEffect(() => {
     window.addEventListener("scroll", (e) => {
@@ -21,6 +30,7 @@ export default function Container() {
 
   return (
     <div className="container-profile">
+      <NavBarMobile ref={navBarRef} />
       <div className="slideBar">
         <div className="wapper-menu">
           <div className="avatar">
@@ -88,7 +98,7 @@ export default function Container() {
           <h6>Copyright © 2020 Trung </h6>
         </div>
       </div>
-      <div className="wapper-content">
+      <div className="wapper-content" onClick={closeNavbar}>
         <Home />
         <About />
         <Experience />

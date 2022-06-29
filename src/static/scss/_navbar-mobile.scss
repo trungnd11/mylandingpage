@@ -1,0 +1,135 @@
+@import "responsive";
+
+.nav-container {
+  display: none;
+  @include Responsive(SM) {
+      display: block;
+    }
+  .nav-header {
+    height: 60px;
+    width: 100%;
+    background: #fff;
+    position: fixed;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+
+    .nav-avatar {
+      overflow: hidden;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid #0000ff;
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+    .nav-title {
+      text-align: center;
+      p {
+        margin: 0;
+        font-weight: 600;
+      }
+
+      span {
+        display: inline-block;
+        position: relative;
+        color: #0000ff;
+        &::after {
+          content: '';
+          position: absolute;
+          display: inline-block;
+          width: 100%;
+          height: 100%;
+          left: 24px;
+          background: #fff;
+          border-left: 1px solid #000;
+          animation: runText 2s infinite alternate-reverse;
+        }
+      }
+    }
+
+    .nav-btn {
+      cursor: pointer;
+
+      &:hover {
+        i {
+          color: red !important;
+        }
+      }
+
+      i {
+        font-size: 25px;
+        color: #0000ff;
+        transition: 1s;
+      }
+    }
+
+    .active-btn {
+      transform: rotateZ(360deg);
+      color: #d42743 !important;
+    }
+
+  }
+
+  .list-profile {
+    position: fixed;
+    z-index: 4;
+    background: #fff;
+    top:-100%;
+    width: 100%;
+    overflow: hidden;
+    opacity: 0;
+    transition: .6s;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+
+    .lists-menu {
+      list-style-type: none;
+      padding-left: 0;
+      text-align: center;
+      padding: 0 16px;
+
+      .item {
+        padding: 20px;
+        border-bottom: 1px solid #ccc;
+
+        i {
+          margin-right: 10px;
+        }
+
+        a {
+          text-decoration: none;
+          color: #000;
+          font-weight: 600;
+        }
+      }
+    }
+
+    .nav-close {
+      text-align: center;
+      cursor: pointer;
+      padding: 20px 0;
+      i {
+        font-size: 30px;
+        color: #d42743;
+      }
+    }
+  }
+
+  .showNav {
+    top:60px;
+    opacity: 1;
+  }
+}
+
+@keyframes runText {
+  100% {
+    left: 105px;
+    width: 50%;
+  }
+}
