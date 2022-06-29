@@ -1,4 +1,3 @@
-import "./scrollTop.scss";
 
 export default function ScrollTop() {
 

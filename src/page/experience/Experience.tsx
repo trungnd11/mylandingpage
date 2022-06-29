@@ -1,4 +1,4 @@
-import "./experience.scss";
+
 import exp1 from "../../static/image/about-icon-01.png";
 import exp2 from "../../static/image/about-icon-02.png";
 import exp3 from "../../static/image/about-icon-03.png";

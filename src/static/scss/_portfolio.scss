@@ -7,9 +7,18 @@
     margin-top: 100px;
     padding: 65px 0;
 
+    @include Responsive(XS) {
+      margin-top: 50px;
+      padding: 30px 0;
+    }
+
     .portfolio-heading {
       text-align: center;
       margin-bottom: 65px;
+
+      @include Responsive(XS) {
+        margin-bottom: 25px;
+      }
 
       .portfolio-title {
         font-weight: 800;
@@ -22,11 +31,16 @@
 
   .list-portfolio {
     margin-bottom: 50px;
+
+    @include Responsive(XS) {
+      margin-bottom: 25px;
+    }
     .list-inline {
       display: flex;
       justify-content: center;
       list-style-type: none;
       padding-left: 0;
+
       .list-inline-item {
         margin-left: 25px;
         cursor: pointer;
@@ -74,12 +88,21 @@
     justify-content: space-around;
     flex-wrap: wrap;
 
+    @include Responsive(XS) {
+      display: block;
+    }
+
     .works-item {
       width: 48%;
       margin-bottom: 25px;
       height: 700px;
       overflow: hidden;
       border-radius: 6px;
+
+      @include Responsive(XS) {
+        width: 91%;
+        margin: 16px;
+      }
 
       .work-wapper {
         height: 100%;
@@ -144,7 +167,7 @@
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%) scale(0);
-          transition: .3s;
+          transition: 0.3s;
 
           .btn {
             cursor: pointer;
@@ -162,7 +185,7 @@
             text-decoration: none;
             border-radius: 6px;
             text-align: center;
-            opacity: .8;
+            opacity: 0.8;
 
             &:hover {
               opacity: 1;

@@ -8,10 +8,22 @@
     justify-content: space-around;
     padding: 30px 0;
 
+    @include Responsive(XS) {
+      padding: 16px;
+      display: block;
+    }
+
     .contact-content {
       padding: 30px;
       width: 25%;
       text-align: center;
+
+      @include Responsive(XS) {
+         width: 100%;
+         padding: 0;
+         margin-bottom: 16px;
+         border-bottom: 1px solid #ccc;
+      }
 
       i {
         font-size: 40px;

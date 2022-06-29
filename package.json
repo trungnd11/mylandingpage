@@ -9,7 +9,6 @@
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.11.41",
-    "@types/radium": "^0.24.4",
     "@types/react": "^18.0.14",
     "@types/react-dom": "^18.0.5",
     "gh-pages": "^4.0.0",
@@ -48,8 +47,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@types/react-animations": "^1.0.0"
   }
 }

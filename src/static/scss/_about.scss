@@ -1,8 +1,15 @@
+@import "responsive";
+
 .about-wapper {
   max-width: 1200px;
   margin: auto;
   display: flex;
   margin-top: 100px;
+
+  @include Responsive(XS) {
+    margin-top: 50px;
+    display: block;
+  }
 
   .about-img {
     max-width: 50%;
@@ -11,11 +18,20 @@
     img {
       width: 100%;
     }
+
+    @include Responsive(XS) {
+      max-width: 100%;
+    }
   }
 
   .about-content {
     max-width: 50%;
     padding: 16px;
+
+    @include Responsive(XS) {
+      max-width: 100%;
+    }
+
     .section-heading {
       h2 {
         font-weight: 800;
@@ -51,6 +67,12 @@
         a {
           text-decoration: none;
         }
+      }
+    }
+
+    .wapper-btn {
+      @include Responsive(XS) {
+        text-align: center;
       }
     }
 

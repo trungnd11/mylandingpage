@@ -1,5 +1,4 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import "./container.scss";
 import avatar from "../../static/image/avatar.jpg";
 import Home from "../../page/home/Home";
 import About from "../../page/about/About";

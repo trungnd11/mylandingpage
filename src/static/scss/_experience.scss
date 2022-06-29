@@ -1,3 +1,5 @@
+@import "responsive";
+
 .experience-area {
   background: #f6f7fd;
 
@@ -7,9 +9,20 @@
     display: flex;
     margin-top: 100px;
 
+    @include Responsive(XS) {
+      margin-top: 50px;
+      display: block;
+    }
+
     .exp-content {
       padding: 16px;
       width: 49%;
+
+      @include Responsive(XS) {
+        width: 92%;
+        text-align: center;
+      }
+
       h5 {
         text-transform: uppercase;
         font-weight: 400;
@@ -20,10 +33,18 @@
 
       h3 {
         font-weight: 700;
+
+        @include Responsive(XS) {
+          font-size: 16px;
+        }
       }
 
       p {
         margin: 20px 0;
+
+        @include Responsive(XS) {
+          text-align: justify;
+        }
       }
     }
 
@@ -35,6 +56,10 @@
       flex-wrap: wrap;
       justify-content: space-around;
 
+      @include Responsive(XS) {
+        width: 92%;
+      }
+
       .exp-block {
         text-align: center;
         margin: 10px;
@@ -45,6 +70,11 @@
         flex-direction: column;
         flex-grow: 1;
         width: 25%;
+
+        @include Responsive(XS) {
+          margin: 10px 0;
+          width: 100%;
+        }
 
         img {
           display: block;

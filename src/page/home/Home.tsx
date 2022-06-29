@@ -1,11 +1,10 @@
 /* eslint-disable react/style-prop-object */
 /* eslint-disable no-restricted-globals */
 import { useEffect, useRef } from 'react';
-import './home.scss';
 
 export default function Home() {
   const height = screen.height / 1.5;
-  const width = screen.width  * 80 / 100;
+  const width = screen.width < 768 ? screen.width : (screen.width * 80) / 100;
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -142,7 +141,7 @@ export default function Home() {
   }, [height, width]);
 
   return (
-    <div id='home' className="wapper-home">
+    <div id="home" className="wapper-home">
       <div className="water-effect jquery-ripples">
         <canvas
           ref={canvasRef}
@@ -173,14 +172,16 @@ export default function Home() {
           years. My expertise is to create and design Websites, Apps, Mockups
           and many more...
         </p>
-        <a href='#project' className="custom-btn btn-12">
-          <span>Click!</span>
-          <span>Project</span>
-        </a>
-        <a href='#about' className="custom-btn btn-12">
-          <span>Click!</span>
-          <span>Hire Me</span>
-        </a>
+        <div className="wapper-btn">
+          <a href="#project" className="custom-btn btn-12">
+            <span>Click!</span>
+            <span>Project</span>
+          </a>
+          <a href="#about" className="custom-btn btn-12">
+            <span>Click!</span>
+            <span>Hire Me</span>
+          </a>
+        </div>
       </div>
     </div>
   );

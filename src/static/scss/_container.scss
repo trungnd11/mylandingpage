@@ -1,6 +1,7 @@
+@import "responsive";
+
 $mainColor: rgb(30, 91, 247);
 $colorWhite: #fff;
-
 .container-profile {
   display: flex;
 
@@ -129,6 +130,10 @@ $colorWhite: #fff;
         }
       }
     }
+
+    @include Responsive(XS) {
+      display: none;
+	  }
   }
 
   .wapper-content {
@@ -136,6 +141,10 @@ $colorWhite: #fff;
     position: absolute;
     overflow-x: hidden;
     right: 0;
+
+    @include Responsive(XS) {
+      width: 100%;
+	  }
   }
 }
 

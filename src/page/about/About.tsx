@@ -1,15 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import "./about.scss";
+
 import avatar from "../../static/image/avatar2.jpg";
 
 export default function About() {
   return (
     <div id="about" className="about-wapper">
       <div className="about-img">
-        <img
-          src={avatar}
-          alt=""
-        />
+        <img src={avatar} alt="" />
       </div>
       <div className="about-content">
         <div className="section-heading">
@@ -43,12 +40,14 @@ export default function About() {
             <span>From:</span> <p>Hanoi</p>
           </li>
         </ul>
-        <a className="btn btn-wiggle" href="#contact">
-          <span>Contact</span>
-        </a>
-        <a className="btn btn-pulse" href="#experience">
-          <span>Experience</span>
-        </a>
+        <div className="wapper-btn">
+          <a className="btn btn-wiggle" href="#contact">
+            <span>Contact</span>
+          </a>
+          <a className="btn btn-pulse" href="#experience">
+            <span>Experience</span>
+          </a>
+        </div>
       </div>
     </div>
   );

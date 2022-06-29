@@ -1,4 +1,3 @@
-import "./services.scss";
 
 const serviceArr = [
   {

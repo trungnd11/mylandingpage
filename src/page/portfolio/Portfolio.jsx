@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { zoomInDown } from "react-animations";
 import Radium from "radium";
-import "./portfolio.scss";
 import imgZsneaker from "../../static/image/portfolio-01.png";
 import img30shine from "../../static/image/30shine.png";
 import imgYody from "../../static/image/yody.png";
