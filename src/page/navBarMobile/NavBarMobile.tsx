@@ -14,7 +14,7 @@ function NavBarMobile(prop: any, ref: any) {
 
   return (
     <div className="nav-container">
-      <div className="nav-header">
+      <div className={`nav-header ${showNav && "show-nav-header"}`}>
         <div className="nav-avatar">
           <img src={avatar} alt="" />
         </div>
@@ -53,6 +53,17 @@ function NavBarMobile(prop: any, ref: any) {
             <a href="#contact">Contact</a>
           </li>
         </ul>
+        <div className="link-git">
+          <a href="https://github.com/trungnd11" className="btn github">
+            <i className="fa-brands fa-github" />
+            Github
+          </a>
+          <a href="https://gitlab.com/trungnd11" className="btn gitlab">
+            <i className="fa-brands fa-gitlab" />
+            Gitlab
+          </a>
+          <h6>Copyright © 2020 Trung </h6>
+        </div>
         <div className="nav-close" onClick={showMenuItem}>
           <i className="fa-solid fa-circle-xmark" />
         </div>

@@ -3,26 +3,32 @@ const serviceArr = [
   {
     name: "Html5, css(sass)",
     description: "2 years",
+    icon: "fa-brands fa-html5",
   },
   {
     name: "Javascript(ES5, ES6)",
     description: "2 years",
+    icon: "fa-brands fa-js",
   },
   {
     name: "ReactJs",
     description: "1 years",
+    icon: "fa-brands fa-react",
   },
   {
     name: "Java(Spring boot)",
     description: "1 years",
+    icon: "fa-brands fa-java",
   },
   {
     name: "Jquery",
     description: "2 years",
+    icon: "fa-brands fa-js-square",
   },
   {
     name: "Bootstrap 4 ,5",
     description: "2 years",
+    icon: "fa-brands fa-bootstrap",
   },
 ];
 
@@ -39,7 +45,7 @@ export default function Services() {
         <div className="services-content">
           {serviceArr.map((item, index) => (
             <div className="single-service" key={index}>
-              <i className="fa-solid fa-mobile-screen-button" />
+              <i className={item.icon} />
               <div className="service-body">
                 <h6 className="service-title">{ item.name }</h6>
                 <p className="service-description">

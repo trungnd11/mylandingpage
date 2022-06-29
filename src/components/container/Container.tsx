@@ -76,24 +76,15 @@ export default function Container() {
             </ul>
           </div>
         </div>
-        <div className="social">
-          <ul className="list-social">
-            <li className="item-social">
-              <a href="#">
-                <i className="fa-brands fa-facebook" />
-              </a>
-            </li>
-            <li className="item-social">
-              <a href="#">
-                <i className="fa-brands fa-instagram" />
-              </a>
-            </li>
-            <li className="item-social">
-              <a href="#">
-                <i className="fa-brands fa-twitter" />
-              </a>
-            </li>
-          </ul>
+        <div className="link-git">
+          <a href="https://github.com/trungnd11" className="btn github">
+            <i className="fa-brands fa-github" />
+            Github
+          </a>
+          <a href="https://gitlab.com/trungnd11" className="btn gitlab">
+            <i className="fa-brands fa-gitlab" />
+            Gitlab
+          </a>
           <h6>Copyright © 2020 Trung </h6>
         </div>
       </div>

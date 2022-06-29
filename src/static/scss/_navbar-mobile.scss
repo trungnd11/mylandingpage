@@ -3,8 +3,14 @@
 .nav-container {
   display: none;
   @include Responsive(SM) {
-      display: block;
-    }
+    display: block;
+  }
+
+  .show-nav-header {
+    box-shadow: none !important;
+    border: 1px solid #ccc;
+  }
+
   .nav-header {
     height: 60px;
     width: 100%;
@@ -14,7 +20,8 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+    transition: .6s;
 
     .nav-avatar {
       overflow: hidden;
@@ -41,7 +48,7 @@
         position: relative;
         color: #0000ff;
         &::after {
-          content: '';
+          content: "";
           position: absolute;
           display: inline-block;
           width: 100%;
@@ -74,19 +81,24 @@
       transform: rotateZ(360deg);
       color: #d42743 !important;
     }
-
   }
 
   .list-profile {
     position: fixed;
     z-index: 4;
     background: #fff;
-    top:-100%;
+    top: -100%;
     width: 100%;
     overflow: hidden;
     opacity: 0;
-    transition: .6s;
-    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    transition: 0.6s;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+
+    &:hover {
+      .nav-close {
+        visibility: visible !important;
+      }
+    }
 
     .lists-menu {
       list-style-type: none;
@@ -114,6 +126,8 @@
       text-align: center;
       cursor: pointer;
       padding: 20px 0;
+      visibility: hidden;
+      transition: 0.6s;
       i {
         font-size: 30px;
         color: #d42743;
@@ -121,8 +135,38 @@
     }
   }
 
+  .link-git {
+    text-align: center;
+    margin-top: 35px;
+    .btn {
+      text-decoration: none;
+      border-radius: 6px;
+      padding: 10px 25px;
+      margin: 0 5px;
+
+      i {
+        margin-right: 5px;
+      }
+    }
+
+    .github {
+      background: #000;
+      color: #fff;
+    }
+
+    .gitlab {
+      background: rgb(250, 190, 11);
+      color: #000;
+      font-weight: 600;
+    }
+
+    h6 {
+      margin: 20px 0;
+    }
+  }
+
   .showNav {
-    top:60px;
+    top: 50px;
     opacity: 1;
   }
 }
