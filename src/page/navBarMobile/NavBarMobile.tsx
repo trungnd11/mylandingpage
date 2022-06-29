@@ -5,7 +5,8 @@ import avatar from "../../static/image/avatar.jpg";
 function NavBarMobile(prop: any, ref: any) {
   const [showNav, setshowNav] = useState<boolean>();
 
-  useImperativeHandle(ref, () => showMenuItem, [showNav]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useImperativeHandle(ref, () => ({showMenuItem, showNav}), [showNav]);
 
   const showMenuItem = () => {
     setshowNav(!showNav);

@@ -14,12 +14,11 @@ import NavBarMobile from "../../page/navBarMobile/NavBarMobile";
 export default function Container() {
 
   const [showScroll, setshowScroll] = useState<boolean>();
-  const navBarRef = useRef();
+  const navBarRef = useRef<any>();
 
   const closeNavbar = (): void => {
-    console.log(navBarRef.current);
-    const show: any = navBarRef.current;
-    show();
+    const show: boolean = navBarRef.current.showNav;
+    show && navBarRef.current.showMenuItem();
   }
 
   useEffect(() => {
