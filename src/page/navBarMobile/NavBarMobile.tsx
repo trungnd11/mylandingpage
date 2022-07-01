@@ -14,11 +14,13 @@ function NavBarMobile(prop: any, ref: any) {
 
   return (
     <div className="nav-container">
-      <div className={`nav-header ${showNav && "show-nav-header"}`}>
+      <div
+        className={`nav-header ${showNav && "show-nav-header"}`}
+      >
         <div className="nav-avatar">
           <img src={avatar} alt="" />
         </div>
-        <div className="nav-title">
+        <div className={`nav-title`}>
           <p>Nguyen Dinh Trung</p>
           <span>I'm Developer</span>
         </div>
@@ -28,30 +30,42 @@ function NavBarMobile(prop: any, ref: any) {
       </div>
       <div className={`list-profile ${showNav && "showNav"}`}>
         <ul className="lists-menu">
-          <li className="item" onClick={showMenuItem}>
-            <i className="fa-solid fa-house" />
-            <a href="#home">Home</a>
-          </li>
-          <li className="item" onClick={showMenuItem}>
-            <i className="fa-solid fa-address-card" />
-            <a href="#about">About</a>
-          </li>
-          <li className="item" onClick={showMenuItem}>
-            <i className="fa-solid fa-clock-rotate-left" />
-            <a href="#experience">Experience</a>
-          </li>
-          <li className="item" onClick={showMenuItem}>
-            <i className="fa-solid fa-gear" />
-            <a href="#services">Services</a>
-          </li>
-          <li className="item" onClick={showMenuItem}>
-            <i className="fa-solid fa-file-lines" />
-            <a href="#project">Project</a>
-          </li>
-          <li className="item" onClick={showMenuItem}>
-            <i className="fa-solid fa-user-check" />
-            <a href="#contact">Contact</a>
-          </li>
+          <a href="#home">
+            <li className="item" onClick={showMenuItem}>
+              <i className="fa-solid fa-house" />
+              <a href="#home">Home</a>
+            </li>
+          </a>
+          <a href="#about">
+            <li className="item" onClick={showMenuItem}>
+              <i className="fa-solid fa-address-card" />
+              <a href="#about">About</a>
+            </li>
+          </a>
+          <a href="#experience">
+            <li className="item" onClick={showMenuItem}>
+              <i className="fa-solid fa-clock-rotate-left" />
+              <a href="#experience">Experience</a>
+            </li>
+          </a>
+          <a href="#services">
+            <li className="item" onClick={showMenuItem}>
+              <i className="fa-solid fa-gear" />
+              <a href="#services">Services</a>
+            </li>
+          </a>
+          <a href="#project">
+            <li className="item" onClick={showMenuItem}>
+              <i className="fa-solid fa-file-lines" />
+              <a href="#project">Project</a>
+            </li>
+          </a>
+          <a href="#contact">
+            <li className="item" onClick={showMenuItem}>
+              <i className="fa-solid fa-user-check" />
+              <a href="#contact">Contact</a>
+            </li>
+          </a>
         </ul>
         <div className="link-git">
           <a href="https://github.com/trungnd11" className="btn github">
@@ -63,9 +77,6 @@ function NavBarMobile(prop: any, ref: any) {
             Gitlab
           </a>
           <h6>Copyright © 2020 Trung </h6>
-        </div>
-        <div className="nav-close" onClick={showMenuItem}>
-          <i className="fa-solid fa-circle-xmark" />
         </div>
       </div>
     </div>
