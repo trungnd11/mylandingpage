@@ -82,9 +82,12 @@
     }
 
     .wapper-btn {
-      display: flex;
-      justify-content: space-evenly;
-      margin-top: 10px;
+      
+      @include Responsive(XS) {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 10px;
+      }
     }
 
     .custom-btn {

@@ -173,7 +173,7 @@ export default function Home() {
           and many more...
         </p>
         <div className="wapper-btn">
-          <a href="#project" className="custom-btn btn-12">
+          <a href="#project" className="custom-btn btn-12" style={{ marginRight: "20px" }}>
             <span>Click!</span>
             <span>Project</span>
           </a>
