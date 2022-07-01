@@ -41,9 +41,7 @@ export default function Container() {
               <h4>Nguyen Dinh Trung</h4>
               <p>
                 <span className="silent-text">I'm a</span>
-                <span className="slide-text">
-                  <b>Developer</b>
-                </span>
+                <span className="slide-text">Developer</span>
               </p>
             </div>
           </div>

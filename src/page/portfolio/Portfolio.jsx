@@ -12,7 +12,7 @@ const imgArr = [
     img: imgZsneaker,
     type: "fullstack",
     language: "java",
-    linkgit: "https://github.com/trungnd11/z-sneaker",
+    linkgit: "https://github.com/trungnd9/shop-sneaker",
     linkdemo: "https://trungnd11.github.io/z-sneaker/",
   },
   {
@@ -39,8 +39,8 @@ const imgArr = [
     img: imgZsneaker,
     type: "backend",
     language: "java",
-    linkgit: "https://trungnd11.github.io/z-sneaker/",
-    linkdemo: "https://trungnd11.github.io/z-sneaker/",
+    linkgit: "https://github.com/trungnd9/shop-sneaker",
+    linkdemo: "https://trungnd11.github.io/z-sneaker",
   },
 ];
 
