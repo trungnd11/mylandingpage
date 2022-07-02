@@ -14,11 +14,11 @@ function NavBarMobile(prop: any, ref: any) {
 
   return (
     <div className="nav-container">
-      <div
-        className={`nav-header ${showNav && "show-nav-header"}`}
-      >
+      <div className={`nav-header ${showNav && "show-nav-header"}`}>
         <div className="nav-avatar">
-          <img src={avatar} alt="" />
+          <a href="#about">
+            <img src={avatar} alt="" />
+          </a>
         </div>
         <div className={`nav-title`}>
           <p>Nguyen Dinh Trung</p>
