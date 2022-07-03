@@ -184,6 +184,7 @@ $colorWhite: #fff;
     position: absolute;
     overflow-x: hidden;
     right: 0;
+    transition: background .6s;
 
     .change-theme {
       position: fixed;

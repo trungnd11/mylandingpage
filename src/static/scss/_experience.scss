@@ -2,6 +2,7 @@
 
 .experience-area {
   background: #f6f7fd;
+  transition: background .6s;
 
   .container { 
     max-width: 1200px;
@@ -74,15 +75,24 @@
         width: 25%;
         border-radius: 6px;
 
+        &:hover {
+          i {
+            transform: rotateY(180deg);
+          }
+        }
+
         @include Responsive(XS) {
           margin: 10px 0;
           width: 100%;
         }
 
-        img {
+        i {
           display: block;
           margin: 0 auto;
           margin-bottom: 10px;
+          font-size: 40px;
+          color: #3e43e9;
+          transition: transform 1s;
         }
 
         h4 {
@@ -111,5 +121,9 @@
 
   .exp-block-dark {
     background: #000 !important;
+  }
+
+  .icon-dark {
+    color: #cc0000 !important;
   }
 }

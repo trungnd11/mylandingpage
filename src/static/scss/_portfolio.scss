@@ -1,5 +1,6 @@
 .wapper-portfolio {
   background: #f6f7fd;
+  transition: background .6s;
 
   .container {
     max-width: 1200px;
@@ -257,4 +258,51 @@
 
 .wapper-portfolio-dark {
   background-color: #555;
+
+  .list-inline-dark {
+      display: flex;
+      justify-content: center;
+      list-style-type: none;
+      padding-left: 0;
+
+      .list-inline-item-dark {
+        margin-left: 25px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.1s ease-in-out;
+        position: relative;
+        letter-spacing: 0.3px;
+        display: inline-block;
+
+        &::before {
+          content: "";
+          position: absolute;
+          background-color: #cc0000;
+          visibility: hidden;
+          transform: scaleX(0);
+          transition: all 0.3s ease-in-out 0s;
+          height: 1px;
+          bottom: -10px;
+          opacity: 1;
+          left: 0;
+          width: 100%;
+        }
+
+        &:hover {
+          color: #cc0000;
+          &::before {
+            visibility: visible;
+            transform: scaleX(1);
+          }
+        }
+      }
+
+      .tab-active-dark {
+        color: #cc0000;
+        &::before {
+          visibility: visible;
+          transform: scaleX(1);
+        }
+      }
+    }
 }

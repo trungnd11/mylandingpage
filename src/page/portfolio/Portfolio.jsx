@@ -113,9 +113,9 @@ export default function Portfolio() {
           </p>
         </div>
         <div className="list-portfolio">
-          <ul className="list-inline works-filter">
+          {theme !== "dark" ? (<ul className="list-inline works-filter">
             <li
-              className={`list-inline-item ${tabActive.all && "tab-active"}`}
+              className={`list-inline-item ${tabActive.all && "tab-active"} `}
               onClick={filterAll}
             >
               All
@@ -144,7 +144,38 @@ export default function Portfolio() {
             >
               Back End
             </li>
-          </ul>
+          </ul>) : (<ul className="list-inline-dark works-filter">
+            <li
+              className={`list-inline-item-dark ${tabActive.all && "tab-active-dark"} `}
+              onClick={filterAll}
+            >
+              All
+            </li>
+            <li
+              className={`list-inline-item-dark ${
+                tabActive.fullStack && "tab-active-dark"
+              }`}
+              onClick={filterFullstack}
+            >
+              Full Stack
+            </li>
+            <li
+              className={`list-inline-item-dark ${
+                tabActive.frontend && "tab-active-dark"
+              }`}
+              onClick={filterFrontend}
+            >
+              Front End
+            </li>
+            <li
+              className={`list-inline-item-dark ${
+                tabActive.backend && "tab-active-dark"
+              }`}
+              onClick={filterBackend}
+            >
+              Back End
+            </li>
+          </ul>)}
         </div>
         <div className="img-portfolio">
           {listImg.map((item) => (

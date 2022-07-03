@@ -27,6 +27,10 @@
         font-size: 38px;
         margin-bottom: 10px;
       }
+
+      p {
+        padding: 0 16px;
+      }
       
     }
 
@@ -48,6 +52,12 @@
         width: 25%;
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 
+        &:hover {
+          i {
+            transform: rotateY(180deg);
+          }
+        }
+
         @include Responsive(XS) {
           width: inherit;
           margin: 16px;
@@ -56,6 +66,7 @@
         i {
           font-size: 40px;
           color: #3e43e9;
+          transition: transform 1s;
         }
 
         .service-title {
