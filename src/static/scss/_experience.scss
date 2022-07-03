@@ -41,6 +41,7 @@
 
       p {
         margin: 20px 0;
+        line-height: 2;
 
         @include Responsive(XS) {
           text-align: justify;
@@ -71,6 +72,7 @@
         flex-direction: column;
         flex-grow: 1;
         width: 25%;
+        border-radius: 6px;
 
         @include Responsive(XS) {
           margin: 10px 0;
@@ -97,5 +99,17 @@
         }
       }
     }
+  }
+}
+
+.experience-area-dark {
+  background: #555555;
+
+  .subtitle-dark {
+    color: #cc0000 !important;
+  }
+
+  .exp-block-dark {
+    background: #000 !important;
   }
 }

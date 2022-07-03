@@ -5,6 +5,10 @@ $colorWhite: #fff;
 .container-profile {
   display: flex;
 
+  .wapper-menu {
+    position: relative;
+  }
+
   .slideBar {
     width: 20%;
     display: flex;
@@ -14,8 +18,9 @@ $colorWhite: #fff;
     overflow-y: auto;
     position: fixed;
     height: 100vh;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     z-index: 2;
+    transition: 0.6s;
 
     .avatar {
       text-align: center;
@@ -70,16 +75,16 @@ $colorWhite: #fff;
         .slide-text {
           position: relative;
           color: $mainColor;
-          &::after {
-            content: "";
+
+          .slide {
             position: absolute;
-            display: inline-block;
             width: 100%;
             height: 100%;
             background-color: #fff;
             left: 0;
-            border-left: 1px solid #ccc;
+            border-left: 1px solid $mainColor;
             animation: showSkill 2s infinite alternate-reverse;
+            z-index: 4;
           }
         }
       }
@@ -108,7 +113,7 @@ $colorWhite: #fff;
             transform: translateX(20px);
 
             a {
-              color: $mainColor;
+              color: $mainColor !important;
             }
           }
           i {
@@ -143,12 +148,35 @@ $colorWhite: #fff;
         color: #000;
         font-weight: 600;
       }
-      
     }
-    
+
     @include Responsive(XS) {
       display: none;
-	  }
+    }
+  }
+
+  .slideBar-dark {
+    background: #000;
+    color: #fff;
+    box-shadow: 0 3px 6px rgba(193, 192, 192, 0.16),
+      0 3px 6px rgba(179, 177, 177, 0.498);
+
+    .slide-text-dark {
+      color: #cc0000 !important;
+    }
+
+    .link-dark {
+      color: #fff !important;
+    }
+
+    .github-dark {
+      border: 1px solid #fff;
+    }
+
+    .slide-dark {
+      background-color: #000 !important;
+      border-left: 1px solid #cc0000;
+    }
   }
 
   .wapper-content {
@@ -157,10 +185,50 @@ $colorWhite: #fff;
     overflow-x: hidden;
     right: 0;
 
+    .change-theme {
+      position: fixed;
+      top: 5px;
+      left: 5px;
+      cursor: pointer;
+      padding: 10px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 6px;
+      box-shadow: 0 0 10px;
+      z-index: 3;
+
+      @include Responsive(XS) {
+        position: fixed;
+        z-index: 6;
+        left: auto;
+        top: 70px;
+        right: 10px;
+        border-radius: 50%;
+      }
+
+      i {
+        font-size: 20px;
+      }
+      .fa-sun {
+        color: orange;
+      }
+
+      .fa-moon {
+        color: #000;
+      }
+    }
+
+    .change-backgroud {
+      background: rgba(255, 255, 255, 0.5) !important;
+    }
+
     @include Responsive(XS) {
       width: 100%;
       margin-top: 60px;
-	  }
+    }
+  }
+  .wapper-content-dark {
+    background: #000;
+    color: #fff;
   }
 }
 

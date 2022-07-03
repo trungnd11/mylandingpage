@@ -69,6 +69,17 @@
           line-height: 2;
         }
       }
+
+      .single-service-dark {
+        background: #555;
+
+        .icon-dark {
+          color: #cc0000;
+        }
+        .service-title-dark {
+          color: #fff !important;
+        }
+      }
     }
   }
 }

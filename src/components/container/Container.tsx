@@ -8,13 +8,15 @@ import Services from "../../page/services/Services";
 import Portfolio from "../../page/portfolio/Portfolio";
 import Contact from "../../page/contact/Contact";
 import ScrollTop from "../scrollTop/ScrollTop";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useContext } from "react";
+import { ThemeContext } from "../ContextTheme/ContextTheme";
 import NavBarMobile from "../../page/navBarMobile/NavBarMobile";
 
 export default function Container() {
 
   const [showScroll, setshowScroll] = useState<boolean>();
   const navBarRef = useRef<any>();
+  const { theme, changeTheme } = useContext(ThemeContext);
 
   const closeNavbar = (): void => {
     const show: boolean = navBarRef.current.showNav;
@@ -30,7 +32,7 @@ export default function Container() {
   return (
     <div className="container-profile">
       <NavBarMobile ref={navBarRef} />
-      <div className="slideBar">
+      <div className={`slideBar ${theme === "dark" && "slideBar-dark"}`}>
         <div className="wapper-menu">
           <div className="avatar">
             <div className="img">
@@ -41,7 +43,16 @@ export default function Container() {
               <h4>Nguyen Dinh Trung</h4>
               <p>
                 <span className="silent-text">I'm a</span>
-                <span className="slide-text">Developer</span>
+                <span
+                  className={`slide-text ${
+                    theme === "dark" && "slide-text-dark"
+                  }`}
+                >
+                  Developer
+                  <span
+                    className={`slide ${theme === "dark" && "slide-dark"}`}
+                  />
+                </span>
               </p>
             </div>
           </div>
@@ -49,33 +60,66 @@ export default function Container() {
             <ul className="lists-menu">
               <li className="item">
                 <i className="fa-solid fa-house" />
-                <a href="#home">Home</a>
+                <a
+                  className={`${theme === "dark" && "link-dark"}`}
+                  href="#home"
+                >
+                  Home
+                </a>
               </li>
               <li className="item">
                 <i className="fa-solid fa-address-card" />
-                <a href="#about">About</a>
+                <a
+                  className={`${theme === "dark" && "link-dark"}`}
+                  href="#about"
+                >
+                  About
+                </a>
               </li>
               <li className="item">
                 <i className="fa-solid fa-clock-rotate-left" />
-                <a href="#experience">Experience</a>
+                <a
+                  className={`${theme === "dark" && "link-dark"}`}
+                  href="#experience"
+                >
+                  Experience
+                </a>
               </li>
               <li className="item">
                 <i className="fa-solid fa-gear" />
-                <a href="#services">Services</a>
+                <a
+                  className={`${theme === "dark" && "link-dark"}`}
+                  href="#services"
+                >
+                  Services
+                </a>
               </li>
               <li className="item">
                 <i className="fa-solid fa-file-lines" />
-                <a href="#project">Project</a>
+                <a
+                  className={`${theme === "dark" && "link-dark"}`}
+                  href="#project"
+                >
+                  Project
+                </a>
               </li>
               <li className="item">
                 <i className="fa-solid fa-user-check" />
-                <a href="#contact">Contact</a>
+                <a
+                  className={`${theme === "dark" && "link-dark"}`}
+                  href="#contact"
+                >
+                  Contact
+                </a>
               </li>
             </ul>
           </div>
         </div>
         <div className="link-git">
-          <a href="https://github.com/trungnd11" className="btn github">
+          <a
+            href="https://github.com/trungnd11"
+            className={`btn github ${theme === "dark" && "github-dark"}`}
+          >
             <i className="fa-brands fa-github" />
             Github
           </a>
@@ -86,7 +130,22 @@ export default function Container() {
           <h6>Copyright © 2020 Trung </h6>
         </div>
       </div>
-      <div className="wapper-content" onClick={closeNavbar}>
+      <div
+        className={`wapper-content ${
+          theme === "dark" && "wapper-content-dark"
+        }`}
+        onClick={closeNavbar}
+      >
+        <div
+          className={`change-theme ${theme === "dark" && "change-backgroud"}`}
+          onClick={changeTheme}
+        >
+          {theme === "dark" ? (
+            <i className="fa-solid fa-moon"></i>
+          ) : (
+            <i className="fa-solid fa-sun"></i>
+          )}
+        </div>
         <Home />
         <About />
         <Experience />

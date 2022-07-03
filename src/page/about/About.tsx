@@ -1,8 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-
 import avatar from "../../static/image/avatar2.jpg";
+import { useContext } from "react";
+import { ThemeContext } from "../../components/ContextTheme/ContextTheme";
 
 export default function About() {
+  const { theme } = useContext(ThemeContext);
+
   return (
     <div id="about" className="about-wapper">
       <div className="about-img">
@@ -11,7 +14,9 @@ export default function About() {
       <div className="about-content">
         <div className="section-heading">
           <h2>About Me</h2>
-          <h6>I am Full-Stack Web Developer</h6>
+          <h6 className={`${theme === "dark" && "title-dark"}`}>
+            I am Full-Stack Web Developer
+          </h6>
         </div>
         <p>
           Sed ut perspiciatis unde accusantium doloremque laudantium,totam rem
@@ -30,7 +35,12 @@ export default function About() {
           <li>
             <span>Email:</span>
             <p>
-              <a href="mailto:trung.dn9500@gmail.com">trung.dn9500@gmail.com</a>
+              <a
+                className={`${theme === "dark" && "title-dark"}`}
+                href="mailto:trung.dn9500@gmail.com"
+              >
+                trung.dn9500@gmail.com
+              </a>
             </p>
           </li>
           <li>
@@ -41,10 +51,18 @@ export default function About() {
           </li>
         </ul>
         <div className="wapper-btn">
-          <a className="btn btn-wiggle" href="#contact">
+          <a
+            className={`btn btn-wiggle ${theme === "dark" && "btn-dark"}`}
+            href="#contact"
+          >
             <span>Contact</span>
           </a>
-          <a className="btn btn-pulse" href="#experience">
+          <a
+            className={`btn btn-pulse ${
+              theme === "dark" && "btn-dark"
+            }`}
+            href="#experience"
+          >
             <span>Experience</span>
           </a>
         </div>

@@ -8,7 +8,7 @@
 
   .show-nav-header {
     box-shadow: none !important;
-    border: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
   }
 
   .nav-header {
@@ -21,7 +21,7 @@
     align-items: center;
     justify-content: space-around;
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
-    transition: .6s;
+    transition: 0.6s;
 
     .nav-avatar {
       overflow: hidden;
@@ -43,20 +43,19 @@
         font-weight: 600;
       }
 
-      span {
-        display: inline-block;
+      .slide-text {
         position: relative;
-        color: #0000ff;
-        &::after {
-          content: "";
+        color: blue;
+
+        .slide {
           position: absolute;
-          display: inline-block;
           width: 100%;
           height: 100%;
-          left: 24px;
-          background: #fff;
-          border-left: 1px solid #000;
-          animation: runText 2s infinite alternate-reverse;
+          background-color: #fff;
+          left: 0;
+          border-left: 1px solid $mainColor;
+          animation: showSkill 2s infinite alternate-reverse;
+          z-index: 4;
         }
       }
     }
@@ -159,6 +158,39 @@
     top: 50px;
     opacity: 1;
     height: fit-content;
+  }
+
+  .nav-header-dark {
+    background: #000 !important;
+    color: #ccc !important;
+    box-shadow: 0 3px 6px rgba(193, 192, 192, 0.16),
+      0 3px 6px rgba(179, 177, 177, 0.498);
+
+    .slide-dark {
+      background-color: #000 !important;
+      border-left: 1px solid #cc0000 !important;
+    }
+
+    .slide-text-dark {
+      color: #cc0000 !important;
+    }
+
+    .icon-dark {
+      color: #fff !important;
+    }
+  }
+
+  .list-profile-dark {
+    background: rgba(0, 0, 0, 0.7) !important;
+    color: #fff !important;
+
+    .link-dark {
+      color: #fff !important;
+    }
+  }
+
+  .github-dark {
+    border: 1px solid #fff;
   }
 }
 

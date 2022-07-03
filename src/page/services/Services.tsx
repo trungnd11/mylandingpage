@@ -1,4 +1,5 @@
-
+import { useContext } from "react";
+import { ThemeContext } from "../../components/ContextTheme/ContextTheme";
 const serviceArr = [
   {
     name: "Html5, css(sass)",
@@ -33,6 +34,7 @@ const serviceArr = [
 ];
 
 export default function Services() {
+  const { theme } = useContext(ThemeContext);
   return (
     <div id="services" className="wapper-service">
       <div className="container">
@@ -44,13 +46,24 @@ export default function Services() {
         </div>
         <div className="services-content">
           {serviceArr.map((item, index) => (
-            <div className="single-service" key={index}>
-              <i className={item.icon} />
+            <div
+              className={`single-service ${
+                theme === "dark" && "single-service-dark"
+              }`}
+              key={index}
+            >
+              <i
+                className={`${item.icon} ${theme === "dark" && "icon-dark"}`}
+              />
               <div className="service-body">
-                <h6 className="service-title">{ item.name }</h6>
-                <p className="service-description">
-                  { item.description }
-                </p>
+                <h6
+                  className={`service-title ${
+                    theme === "dark" && "service-title-dark"
+                  }`}
+                >
+                  {item.name}
+                </h6>
+                <p className="service-description">{item.description}</p>
               </div>
             </div>
           ))}

@@ -51,6 +51,10 @@
       }
     }
 
+    p {
+      line-height: 2;
+    }
+
     .about-info {
       list-style-type: none;
       padding-left: 0;
@@ -121,6 +125,14 @@
       animation: pulse 2s infinite 3s cubic-bezier(0.25, 0, 0, 1);
       box-shadow: 0 0 0 0 rgb(67, 65, 65);
     }
+  }
+
+  .title-dark {
+    color: #cc0000 !important;
+  }
+  .btn-dark {
+    color: #fff !important;
+    border-color: #fff !important;
   }
 }
 

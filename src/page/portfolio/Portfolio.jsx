@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { zoomInDown } from "react-animations";
 import Radium from "radium";
+import { ThemeContext } from "../../components/ContextTheme/ContextTheme";
 import imgZsneaker from "../../static/image/portfolio-01.png";
 import img30shine from "../../static/image/30shine.png";
 import imgYody from "../../static/image/yody.png";
@@ -60,6 +61,7 @@ export default function Portfolio() {
     frontend: false,
     backend: false
   });
+  const { theme } = useContext(ThemeContext);
 
   const filterAll = () => {
     setListImg(imgArr);
@@ -102,7 +104,7 @@ export default function Portfolio() {
   };
 
   return (
-    <div id="project" className="wapper-portfolio">
+    <div id="project" className={`wapper-portfolio ${theme === "dark" && "wapper-portfolio-dark"}`}>
       <div className="container">
         <div className="portfolio-heading">
           <h2 className="portfolio-title">My Project</h2>
