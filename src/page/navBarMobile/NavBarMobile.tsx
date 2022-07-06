@@ -101,7 +101,7 @@ function NavBarMobile(prop: any, ref: any) {
                 className={`${theme === "dark" && "link-dark"}`}
                 href="#services"
               >
-                Services
+                Programing Language
               </a>
             </li>
           </a>

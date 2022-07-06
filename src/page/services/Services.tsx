@@ -39,7 +39,7 @@ export default function Services() {
     <div id="services" className="wapper-service">
       <div className="container">
         <div className="services-heading">
-          <h2 className="services-title">Services</h2>
+          <h2 className="services-title">Programing Language</h2>
           <p className="services-description">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione!
           </p>

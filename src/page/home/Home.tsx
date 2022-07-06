@@ -168,9 +168,8 @@ export default function Home() {
           </span>
         </h1>
         <p>
-          I'm a Full-Stack Web Developer with extensive experience for over 8
-          years. My expertise is to create and design Websites, Apps, Mockups
-          and many more...
+          I'm a Full-Stack Web Developer with extensive experience for over 2
+          years. My expertise is to create and design Websites, ERP for Enterprise and many more...
         </p>
         <div className="wapper-btn">
           <a href="#project" className="custom-btn btn-12" style={{ marginRight: "20px" }}>
