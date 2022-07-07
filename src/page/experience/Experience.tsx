@@ -1,12 +1,17 @@
-import { useContext } from "react";
+import { forwardRef, useContext, useEffect, useImperativeHandle, useState } from "react";
 import { ThemeContext } from "../../components/ContextTheme/ContextTheme";
-import exp1 from "../../static/image/about-icon-01.png";
-import exp2 from "../../static/image/about-icon-02.png";
-import exp3 from "../../static/image/about-icon-03.png";
-import exp4 from "../../static/image/about-icon-04.png";
 
-export default function Experience() {
+function Experience(prop: any, ref: any) {
   const { theme } = useContext(ThemeContext);
+  const [offset, setOffset] = useState<number>(0);
+
+  useImperativeHandle(ref, () => offset, [offset]);
+
+  useEffect(() => {
+    const offsetDiv:any = document.getElementById("experience");
+    setOffset(offsetDiv.offsetTop);
+  }, [offset]);
+  
   return (
     <div
       id="experience"
@@ -53,3 +58,5 @@ export default function Experience() {
     </div>
   );
 }
+
+export default forwardRef(Experience)

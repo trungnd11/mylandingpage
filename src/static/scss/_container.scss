@@ -114,6 +114,7 @@ $colorWhite: #fff;
 
             a {
               color: $mainColor !important;
+              font-weight: 700;
             }
           }
           i {
@@ -121,6 +122,17 @@ $colorWhite: #fff;
             display: inline-block;
             width: 25px;
           }
+        }
+
+        .active {
+          color: $mainColor;
+          border-color: $mainColor;
+          transform: translateX(20px);
+        }
+
+        a.active {
+          color: $mainColor !important;
+          font-weight: 700;
         }
       }
     }
@@ -198,6 +210,7 @@ $colorWhite: #fff;
 
           a {
             color: #cc0000 !important;
+            font-weight: 700;
           }
         }
         i {
@@ -207,14 +220,15 @@ $colorWhite: #fff;
         }
       }
 
-      .active {
+      .active-dark {
         color: #cc0000;
         border-color: #cc0000;
         transform: translateX(20px);
       }
 
-      a.active {
+      a.active-dark {
         color: #cc0000 !important;
+        font-weight: 700;
       }
     }
   }

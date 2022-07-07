@@ -1,13 +1,22 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import avatar from "../../static/image/avatar2.jpg";
-import { useContext } from "react";
+import { forwardRef, useContext, useEffect, useImperativeHandle, useRef, useState } from "react";
 import { ThemeContext } from "../../components/ContextTheme/ContextTheme";
 
-export default function About() {
+function About(prop: any, ref: any) {
   const { theme } = useContext(ThemeContext);
+  const aboutRef = useRef<any>(null);
+  const [offset, setOffset] = useState<number>(0);
+  
+  useImperativeHandle(ref, () => offset, [offset]);
+  
+  useEffect(() => {
+    setOffset(aboutRef.current.offsetTop);
+  }, [offset]);
+  
 
   return (
-    <div id="about" className="about-wapper">
+    <div ref={aboutRef} id="about" className="about-wapper">
       <div className="about-img">
         <img src={avatar} alt="" />
       </div>
@@ -70,3 +79,5 @@ export default function About() {
     </div>
   );
 }
+
+export default forwardRef(About);

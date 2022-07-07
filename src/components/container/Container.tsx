@@ -34,6 +34,11 @@ export default function Container() {
     project: false,
     contact: false,
   });
+  const aboutRef = useRef<number>(0);
+  const experiencetRef = useRef<number>(0);
+  const programRef = useRef<number>(0);
+  const projectRef = useRef<number>(0);
+  const contactRef = useRef<number>(0);
 
   const closeNavbar = (): void => {
     const show: boolean = navBarRef.current.showNav;
@@ -41,7 +46,7 @@ export default function Container() {
   }
 
   const activeSlideBar = (heithScreen: number): void => {
-    if (heithScreen < 500) {
+    if (heithScreen < aboutRef.current - 200) {
       setActiveItem({
         home: true,
         about: false,
@@ -50,7 +55,10 @@ export default function Container() {
         project: false,
         contact: false,
       });
-    } else if (heithScreen >= 500) {
+    } else if (
+      heithScreen > aboutRef.current - 200 &&
+      heithScreen <= experiencetRef.current - 200
+    ) {
       setActiveItem({
         home: false,
         about: true,
@@ -59,7 +67,7 @@ export default function Container() {
         project: false,
         contact: false,
       });
-    } else if (heithScreen >= 1000) {
+    } else if (heithScreen > experiencetRef.current - 200 && heithScreen <= programRef.current - 200) {
       setActiveItem({
         home: false,
         about: false,
@@ -68,7 +76,7 @@ export default function Container() {
         project: false,
         contact: false,
       });
-    } else if (heithScreen >= 1500) {
+    } else if (heithScreen > programRef.current - 200 && heithScreen <= projectRef.current - 200) {
       setActiveItem({
         home: false,
         about: false,
@@ -77,7 +85,7 @@ export default function Container() {
         project: false,
         contact: false,
       });
-    } else if (heithScreen >= 2000) {
+    } else if (heithScreen > projectRef.current - 200 && heithScreen <= contactRef.current - 1000) {
       setActiveItem({
         home: false,
         about: false,
@@ -86,7 +94,7 @@ export default function Container() {
         project: true,
         contact: false,
       });
-    } else {
+    } else if (heithScreen > contactRef.current - 1000) {
       setActiveItem({
         home: false,
         about: false,
@@ -103,6 +111,7 @@ export default function Container() {
       window.scrollY > 500 ? setshowScroll(true) : setshowScroll(false);
       activeSlideBar(window.scrollY);
     });
+
   }, []);
 
   return (
@@ -135,64 +144,7 @@ export default function Container() {
           <div className="list-profile">
             {theme === "light" ? (
               <ul className="lists-menu">
-                <li className="item">
-                  <i className="fa-solid fa-house" />
-                  <a
-                    className={`${theme === "dark" && "link-dark"}`}
-                    href="#home"
-                  >
-                    Home
-                  </a>
-                </li>
-                <li className="item">
-                  <i className="fa-solid fa-address-card" />
-                  <a
-                    className={`${theme === "dark" && "link-dark"}`}
-                    href="#about"
-                  >
-                    About
-                  </a>
-                </li>
-                <li className="item">
-                  <i className="fa-solid fa-clock-rotate-left" />
-                  <a
-                    className={`${theme === "dark" && "link-dark"}`}
-                    href="#experience"
-                  >
-                    Experience
-                  </a>
-                </li>
-                <li className="item">
-                  <i className="fa-solid fa-gear" />
-                  <a
-                    className={`${theme === "dark" && "link-dark"}`}
-                    href="#services"
-                  >
-                    Programing Language
-                  </a>
-                </li>
-                <li className="item">
-                  <i className="fa-solid fa-file-lines" />
-                  <a
-                    className={`${theme === "dark" && "link-dark"}`}
-                    href="#project"
-                  >
-                    Project
-                  </a>
-                </li>
-                <li className="item">
-                  <i className="fa-solid fa-user-check" />
-                  <a
-                    className={`${theme === "dark" && "link-dark"}`}
-                    href="#contact"
-                  >
-                    Contact
-                  </a>
-                </li>
-              </ul>
-            ) : (
-              <ul className="lists-menu-dark">
-                <li className={`item-dark ${avtiveItem.home && "active"}`}>
+                <li className={`item ${avtiveItem.home && "active"}`}>
                   <i className="fa-solid fa-house" />
                   <a
                     className={`${theme === "dark" && "link-dark"} ${
@@ -203,7 +155,7 @@ export default function Container() {
                     Home
                   </a>
                 </li>
-                <li className={`item-dark ${avtiveItem.about && "active"}`}>
+                <li className={`item ${avtiveItem.about && "active"}`}>
                   <i className="fa-solid fa-address-card" />
                   <a
                     className={`${theme === "dark" && "link-dark"} ${
@@ -214,9 +166,7 @@ export default function Container() {
                     About
                   </a>
                 </li>
-                <li
-                  className={`item-dark ${avtiveItem.experience && "active"}`}
-                >
+                <li className={`item ${avtiveItem.experience && "active"}`}>
                   <i className="fa-solid fa-clock-rotate-left" />
                   <a
                     className={`${theme === "dark" && "link-dark"} ${
@@ -227,7 +177,7 @@ export default function Container() {
                     Experience
                   </a>
                 </li>
-                <li className={`item-dark ${avtiveItem.program && "active"}`}>
+                <li className={`item ${avtiveItem.program && "active"}`}>
                   <i className="fa-solid fa-gear" />
                   <a
                     className={`${theme === "dark" && "link-dark"} ${
@@ -238,7 +188,7 @@ export default function Container() {
                     Programing Language
                   </a>
                 </li>
-                <li className={`item-dark ${avtiveItem.project && "active"}`}>
+                <li className={`item ${avtiveItem.project && "active"}`}>
                   <i className="fa-solid fa-file-lines" />
                   <a
                     className={`${theme === "dark" && "link-dark"} ${
@@ -249,11 +199,92 @@ export default function Container() {
                     Project
                   </a>
                 </li>
-                <li className={`item-dark ${avtiveItem.contact && "active"}`}>
+                <li className={`item ${avtiveItem.contact && "active"}`}>
                   <i className="fa-solid fa-user-check" />
                   <a
                     className={`${theme === "dark" && "link-dark"} ${
                       avtiveItem.contact && "active"
+                    }`}
+                    href="#contact"
+                  >
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            ) : (
+              <ul className="lists-menu-dark">
+                <li className={`item-dark ${avtiveItem.home && "active-dark"}`}>
+                  <i className="fa-solid fa-house" />
+                  <a
+                    className={`${theme === "dark" && "link-dark"} ${
+                      avtiveItem.home && "active-dark"
+                    }`}
+                    href="#home"
+                  >
+                    Home
+                  </a>
+                </li>
+                <li
+                  className={`item-dark ${avtiveItem.about && "active-dark"}`}
+                >
+                  <i className="fa-solid fa-address-card" />
+                  <a
+                    className={`${theme === "dark" && "link-dark"} ${
+                      avtiveItem.about && "active-dark"
+                    }`}
+                    href="#about"
+                  >
+                    About
+                  </a>
+                </li>
+                <li
+                  className={`item-dark ${
+                    avtiveItem.experience && "active-dark"
+                  }`}
+                >
+                  <i className="fa-solid fa-clock-rotate-left" />
+                  <a
+                    className={`${theme === "dark" && "link-dark"} ${
+                      avtiveItem.experience && "active-dark"
+                    }`}
+                    href="#experience"
+                  >
+                    Experience
+                  </a>
+                </li>
+                <li
+                  className={`item-dark ${avtiveItem.program && "active-dark"}`}
+                >
+                  <i className="fa-solid fa-gear" />
+                  <a
+                    className={`${theme === "dark" && "link-dark"} ${
+                      avtiveItem.program && "active-dark"
+                    }`}
+                    href="#services"
+                  >
+                    Programing Language
+                  </a>
+                </li>
+                <li
+                  className={`item-dark ${avtiveItem.project && "active-dark"}`}
+                >
+                  <i className="fa-solid fa-file-lines" />
+                  <a
+                    className={`${theme === "dark" && "link-dark"} ${
+                      avtiveItem.project && "active-dark"
+                    }`}
+                    href="#project"
+                  >
+                    Project
+                  </a>
+                </li>
+                <li
+                  className={`item-dark ${avtiveItem.contact && "active-dark"}`}
+                >
+                  <i className="fa-solid fa-user-check" />
+                  <a
+                    className={`${theme === "dark" && "link-dark"} ${
+                      avtiveItem.contact && "active-dark"
                     }`}
                     href="#contact"
                   >
@@ -296,11 +327,11 @@ export default function Container() {
           )}
         </div>
         <Home />
-        <About />
-        <Experience />
-        <Services />
-        <Portfolio />
-        <Contact />
+        <About ref={aboutRef} />
+        <Experience ref={experiencetRef} />
+        <Services ref={programRef} />
+        <Portfolio ref={projectRef} />
+        <Contact ref={contactRef} />
         {showScroll && <ScrollTop />}
       </div>
     </div>

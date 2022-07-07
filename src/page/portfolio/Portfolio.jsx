@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, forwardRef, useImperativeHandle, useEffect } from "react";
 import { zoomInDown } from "react-animations";
 import Radium from "radium";
 import { ThemeContext } from "../../components/ContextTheme/ContextTheme";
@@ -52,7 +52,7 @@ const animation = {
   },
 };
 
-export default function Portfolio() {
+function Portfolio(prop, ref) {
 
   const [listImg, setListImg] = useState(imgArr);
   const [tabActive, settabActive] = useState({
@@ -62,6 +62,18 @@ export default function Portfolio() {
     backend: false
   });
   const { theme } = useContext(ThemeContext);
+  const [offset, setOffset] = useState(0);
+
+  useImperativeHandle(
+    ref,
+    () => offset,
+    [offset],
+  )
+
+  useEffect(() => {
+    const offSetDiv = document.getElementById("project");
+    setOffset(offSetDiv.offsetTop);
+  }, [offset])
 
   const filterAll = () => {
     setListImg(imgArr);
@@ -208,3 +220,5 @@ export default function Portfolio() {
     </div>
   );
 }
+
+export default forwardRef(Portfolio);

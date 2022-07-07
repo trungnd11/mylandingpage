@@ -1,8 +1,16 @@
-import { useContext } from "react";
+import { forwardRef, useContext, useEffect, useImperativeHandle, useState } from "react";
 import { ThemeContext } from "../../components/ContextTheme/ContextTheme";
 
-export default function Contact() {
+function Contact(prop:any, ref:any) {
   const { theme } = useContext(ThemeContext);
+  const [offset, setOffset] = useState<number>(0);
+
+  useImperativeHandle(ref, () => offset, [offset]);
+
+  useEffect(() => {
+    const offsetDiv: any = document.getElementById("contact");
+    setOffset(offsetDiv.offsetTop);
+  }, [offset]);
   return (
     <div id="contact" className="wapper-contact">
       <div className="container">
@@ -48,3 +56,5 @@ export default function Contact() {
     </div>
   );
 }
+
+export default forwardRef(Contact);

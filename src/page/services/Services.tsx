@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { forwardRef, useContext, useEffect, useImperativeHandle, useState } from "react";
 import { ThemeContext } from "../../components/ContextTheme/ContextTheme";
 const serviceArr = [
   {
@@ -33,8 +33,17 @@ const serviceArr = [
   },
 ];
 
-export default function Services() {
+function Services(prop:any, ref:any) {
   const { theme } = useContext(ThemeContext);
+  const [offset, setOffset] = useState<number>(0);
+
+  useImperativeHandle(ref, () => offset, [offset]);
+
+  useEffect(() => {
+    const offsetDiv: any = document.getElementById("services");
+    setOffset(offsetDiv.offsetTop);
+  }, [offset]);
+
   return (
     <div id="services" className="wapper-service">
       <div className="container">
@@ -72,3 +81,5 @@ export default function Services() {
     </div>
   );
 }
+
+export default forwardRef(Services);
