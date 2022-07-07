@@ -46,7 +46,8 @@ export default function Container() {
   }
 
   const activeSlideBar = (heithScreen: number): void => {
-    if (heithScreen < aboutRef.current - 200) {
+    console.log(aboutRef);
+    if (heithScreen <= aboutRef.current - 500) {
       setActiveItem({
         home: true,
         about: false,
@@ -56,7 +57,7 @@ export default function Container() {
         contact: false,
       });
     } else if (
-      heithScreen > aboutRef.current - 200 &&
+      heithScreen > aboutRef.current - 500 &&
       heithScreen <= experiencetRef.current - 200
     ) {
       setActiveItem({
@@ -85,7 +86,10 @@ export default function Container() {
         project: false,
         contact: false,
       });
-    } else if (heithScreen > projectRef.current - 200 && heithScreen <= contactRef.current - 1000) {
+    } else if (
+      heithScreen > projectRef.current - 200 &&
+      heithScreen <= projectRef.current + 500
+    ) {
       setActiveItem({
         home: false,
         about: false,
@@ -94,7 +98,10 @@ export default function Container() {
         project: true,
         contact: false,
       });
-    } else if (heithScreen > contactRef.current - 1000) {
+    } else if (
+      heithScreen > projectRef.current + 500 &&
+      heithScreen < contactRef.current - 1000
+    ) {
       setActiveItem({
         home: false,
         about: false,
