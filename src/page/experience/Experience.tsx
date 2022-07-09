@@ -28,29 +28,45 @@ function Experience(prop: any, ref: any) {
             Amazing <span>experience</span> with those companies
           </h3>
           <p>
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque laudantium, totam rem aperiam
+            5 years working in electronics but with passion for work, I decided
+            to pursue my IT industry.
           </p>
           <p>
-            eaque ipsa quae ab illo inventore veritatis et quasi architecto
-            beatae vitae dicta sunt explicabo.
+            Great work experience and environment helps me learn new knowledge
+            and improve my work experience.
           </p>
         </div>
         <div className="exp-container">
           <div className={`exp-block ${theme === "dark" && "exp-block-dark"}`}>
-            <i className={`fa-solid fa-building ${theme === "dark" && "icon-dark"}`}></i>
+            <i
+              className={`fa-solid fa-building ${
+                theme === "dark" && "icon-dark"
+              }`}
+            ></i>
             <h4>Foxcom</h4> <h6>2014 - 2015</h6>
           </div>
           <div className={`exp-block ${theme === "dark" && "exp-block-dark"}`}>
-            <i className={`fa-solid fa-building ${theme === "dark" && "icon-dark"}`}></i>
+            <i
+              className={`fa-solid fa-building ${
+                theme === "dark" && "icon-dark"
+              }`}
+            ></i>
             <h4>Canon</h4> <h6>2016 - 3 months</h6>
           </div>
           <div className={`exp-block ${theme === "dark" && "exp-block-dark"}`}>
-            <i className={`fa-solid fa-building ${theme === "dark" && "icon-dark"}`}></i>
+            <i
+              className={`fa-solid fa-building ${
+                theme === "dark" && "icon-dark"
+              }`}
+            ></i>
             <h4>Samsung</h4> <h6>2016 - 2021</h6>
           </div>
           <div className={`exp-block ${theme === "dark" && "exp-block-dark"}`}>
-            <i className={`fa-solid fa-building ${theme === "dark" && "icon-dark"}`}></i>
+            <i
+              className={`fa-solid fa-building ${
+                theme === "dark" && "icon-dark"
+              }`}
+            ></i>
             <h4>AC Tech</h4> <h6>2021 - Present</h6>
           </div>
         </div>

@@ -327,7 +327,7 @@ export default function Container() {
           className={`change-theme ${theme === "dark" && "change-backgroud"}`}
           onClick={changeTheme}
         >
-          {theme === "dark" ? (
+          {theme === "light" ? (
             <i className="fa-solid fa-moon"></i>
           ) : (
             <i className="fa-solid fa-sun"></i>

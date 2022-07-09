@@ -121,7 +121,7 @@ function Portfolio(prop, ref) {
         <div className="portfolio-heading">
           <h2 className="portfolio-title">My Project</h2>
           <p className="portfolio-description">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione!
+            Always do as much as you can!
           </p>
         </div>
         <div className="list-portfolio">

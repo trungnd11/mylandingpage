@@ -27,14 +27,11 @@ function About(prop: any, ref: any) {
             I am Full-Stack Web Developer
           </h6>
         </div>
+        <p>I am love programing and new technologies.</p>
         <p>
-          Sed ut perspiciatis unde accusantium doloremque laudantium,totam rem
-          aperiam.
-        </p>
-        <p>
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium,totam rem aperiam, eaque ipsa quae
-          ab illo inventore veritatis et quasi.
+          I always spend my free time learning new technologies to upgrade
+          myself to be a senior programmer. And, I want to learn and improve my
+          knowledge through a professional working environment.
         </p>
         <hr />
         <ul className="about-info">
@@ -67,9 +64,7 @@ function About(prop: any, ref: any) {
             <span>Contact</span>
           </a>
           <a
-            className={`btn btn-pulse ${
-              theme === "dark" && "btn-dark"
-            }`}
+            className={`btn btn-pulse ${theme === "dark" && "btn-dark"}`}
             href="#experience"
           >
             <span>Experience</span>

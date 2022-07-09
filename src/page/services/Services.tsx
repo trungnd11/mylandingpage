@@ -3,12 +3,12 @@ import { ThemeContext } from "../../components/ContextTheme/ContextTheme";
 const serviceArr = [
   {
     name: "Html5, css(sass)",
-    description: "2 years",
+    description: "Use it proficiently",
     icon: "fa-brands fa-html5",
   },
   {
     name: "Javascript(ES5, ES6)",
-    description: "2 years",
+    description: "Use it proficiently",
     icon: "fa-brands fa-js",
   },
   {
@@ -23,12 +23,12 @@ const serviceArr = [
   },
   {
     name: "Jquery",
-    description: "2 years",
+    description: "Use it proficiently",
     icon: "fa-brands fa-js-square",
   },
   {
     name: "Bootstrap 4 ,5",
-    description: "2 years",
+    description: "Use it proficiently",
     icon: "fa-brands fa-bootstrap",
   },
 ];
@@ -50,7 +50,7 @@ function Services(prop:any, ref:any) {
         <div className="services-heading">
           <h2 className="services-title">Programing Language</h2>
           <p className="services-description">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione!
+            Always learning new technologies!
           </p>
         </div>
         <div className="services-content">
