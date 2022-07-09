@@ -28,7 +28,7 @@ function Experience(prop: any, ref: any) {
             Amazing <span>experience</span> with those companies
           </h3>
           <p>
-            5 years working in electronics but with passion for work, I decided
+            4 years working in electronics but with passion for technology, I decided
             to pursue my IT industry.
           </p>
           <p>
@@ -59,7 +59,7 @@ function Experience(prop: any, ref: any) {
                 theme === "dark" && "icon-dark"
               }`}
             ></i>
-            <h4>Samsung</h4> <h6>2016 - 2021</h6>
+            <h4>Samsung</h4> <h6>2016 - 2020</h6>
           </div>
           <div className={`exp-block ${theme === "dark" && "exp-block-dark"}`}>
             <i
@@ -67,7 +67,7 @@ function Experience(prop: any, ref: any) {
                 theme === "dark" && "icon-dark"
               }`}
             ></i>
-            <h4>AC Tech</h4> <h6>2021 - Present</h6>
+            <h4>AC Tech</h4> <h6>2020 - Present</h6>
           </div>
         </div>
       </div>
