@@ -46,7 +46,6 @@ export default function Container() {
   }
 
   const activeSlideBar = (heithScreen: number): void => {
-    console.log(aboutRef);
     if (heithScreen <= aboutRef.current - 500) {
       setActiveItem({
         home: true,
