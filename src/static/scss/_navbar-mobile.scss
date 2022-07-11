@@ -2,6 +2,10 @@
 
 .nav-container {
   display: none;
+  @include Responsive(XS) {
+    display: block;
+  }
+
   @include Responsive(SM) {
     display: block;
   }
@@ -109,6 +113,16 @@
     transition: 0.6s;
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 
+    @include Responsive(SM) {
+      width: 40%;
+      height: 100vh;
+      top: 0;
+      right: -100%;
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: space-between;
+    }
+
     a {
       text-decoration: none;
       color: #000;
@@ -120,6 +134,10 @@
       padding-left: 0;
       text-align: center;
       padding: 0 16px;
+
+      @include Responsive(SM) {
+        text-align: start;
+      }
 
       .item {
         padding: 20px;
@@ -142,6 +160,11 @@
   .link-git {
     text-align: center;
     margin-top: 35px;
+
+    @include Responsive(SM) {
+      margin: 50px 0;
+    }
+
     .btn {
       text-decoration: none;
       border-radius: 6px;
@@ -172,6 +195,10 @@
   .showNav {
     top: 50px;
     opacity: 1;
+
+    @include Responsive(SM) {
+      right: 0;
+    }
   }
 
   .nav-header-dark {

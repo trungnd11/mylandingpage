@@ -13,11 +13,19 @@
       margin-top: 50px;
     }
 
+    @include Responsive(SM) {
+      margin-top: 50px;
+    }
+
     .services-heading {
       text-align: center;
       margin-bottom: 65px;
 
       @include Responsive(XS) {
+        margin-bottom: 40px;
+      }
+
+      @include Responsive(SM) {
         margin-bottom: 40px;
       }
 
@@ -43,6 +51,10 @@
         display: block;
       }
 
+      @include Responsive(SM) {
+        margin: 0 16px;
+      }
+
       .single-service {
         padding: 32px 38px;
         background-color: #fff;
@@ -61,6 +73,11 @@
         @include Responsive(XS) {
           width: inherit;
           margin: 16px;
+        }
+
+        @include Responsive(SM) {
+          margin: 10px;
+          flex-grow: 1;
         }
 
         i {

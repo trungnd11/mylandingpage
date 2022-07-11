@@ -39,6 +39,10 @@
             @include Responsive(XS) {
               font-size: 30px;
             }
+
+            @include Responsive(SM) {
+              font-size: 35px;
+            }
         }
 
         span:nth-child(2) {
@@ -183,9 +187,19 @@
       border-radius: 0;
       padding: 10px;
     }
+
+    @include Responsive(SM) {
+      width: 88%;
+      padding: 20px;
+    }
   }
 
   @include Responsive(XS) {
+    height: calc(100vh / 1.5);
+    position: relative;
+  }
+
+  @include Responsive(SM) {
     height: calc(100vh / 1.5);
     position: relative;
   }

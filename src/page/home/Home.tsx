@@ -4,10 +4,9 @@ import { useEffect, useRef } from 'react';
 
 export default function Home() {
   const height = screen.height / 1.5;
-  const width = screen.width < 768 ? screen.width : (screen.width * 80) / 100;
+  const width = screen.width <= 820 ? screen.width : (screen.width * 80) / 100;
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
-
 
   useEffect(() => {
     const canvas: any = document.querySelector("#canvas");

@@ -15,6 +15,11 @@
       display: block;
     }
 
+    @include Responsive(SM) {
+      margin-top: 50px;
+      display: block;
+    }
+
     .exp-content {
       padding: 16px;
       width: 49%;
@@ -22,6 +27,12 @@
       @include Responsive(XS) {
         width: inherit;
         text-align: center;
+      }
+
+      @include Responsive(SM) {
+        width: inherit;
+        text-align: justify;
+        padding: 16px 26px;
       }
 
       h5 {
@@ -63,6 +74,11 @@
         padding-right: 16px;
       }
 
+      @include Responsive(SM) {
+        width: inherit;
+        padding-right: 16px;
+      }
+
       .exp-block {
         text-align: center;
         margin: 10px;
@@ -84,6 +100,10 @@
         @include Responsive(XS) {
           margin: 10px 0;
           width: 100%;
+        }
+
+        @include Responsive(SM) {
+          margin: 10px;
         }
 
         i {

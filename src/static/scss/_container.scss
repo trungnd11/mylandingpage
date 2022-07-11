@@ -161,8 +161,12 @@ $colorWhite: #fff;
         font-weight: 600;
       }
     }
-
+    
     @include Responsive(XS) {
+      display: none;
+    }
+
+    @include Responsive(SM) {
       display: none;
     }
   }
@@ -260,6 +264,15 @@ $colorWhite: #fff;
         border-radius: 50%;
       }
 
+      @include Responsive(SM) {
+        position: fixed;
+        z-index: 6;
+        left: auto;
+        top: 70px;
+        right: 10px;
+        border-radius: 50%;
+      }
+
       i {
         font-size: 20px;
       }
@@ -277,6 +290,11 @@ $colorWhite: #fff;
     }
 
     @include Responsive(XS) {
+      width: 100%;
+      margin-top: 60px;
+    }
+
+    @include Responsive(SM) {
       width: 100%;
       margin-top: 60px;
     }
