@@ -36,11 +36,15 @@
       }
 
       h5 {
-        text-transform: uppercase;
-        font-weight: 400;
         margin-bottom: 10px;
-        font-size: 20px;
+        margin-top: 4px;
+        font-size: 36px;
         color: #3e43e9;
+        font-weight: 700;
+
+        @include Responsive(SM) {
+          text-align: center;
+        }
       }
 
       h3 {
@@ -48,6 +52,10 @@
 
         @include Responsive(XS) {
           font-size: 16px;
+        }
+
+        @include Responsive(SM) {
+          text-align: center;
         }
       }
 

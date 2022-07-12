@@ -55,6 +55,10 @@
         font-weight: 800;
         font-size: 36px;
         margin-bottom: 10px;
+
+        @include Responsive(SM) {
+          text-align: center;
+        }
       }
 
       h6 {
@@ -63,12 +67,24 @@
         font-size: 18px;
         margin-top: 0;
         margin-bottom: 13px;
+
+        @include Responsive(SM) {
+          text-align: center;
+        }
       }
     }
 
-    p {
-      line-height: 2;
+    .content-description {
+      p {
+        line-height: 2;
+
+        @include Responsive(XS) {
+          text-align: justify;
+        }
+      }
+
     }
+
 
     .about-info {
       list-style-type: none;

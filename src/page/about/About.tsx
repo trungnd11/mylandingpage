@@ -27,12 +27,14 @@ function About(prop: any, ref: any) {
             I am Full-Stack Web Developer
           </h6>
         </div>
-        <p>I am love programing and new technologies.</p>
-        <p>
-          I always spend my free time learning new technologies to upgrade
-          myself to be a senior programmer. And, I want to learn and improve my
-          knowledge through a professional working environment.
-        </p>
+        <div className="content-description">
+          <p>I am love programing and new technologies.</p>
+          <p>
+            I always spend my free time learning new technologies to upgrade
+            myself to be a senior programmer. And, I want to learn and improve
+            my knowledge through a professional working environment.
+          </p>
+        </div>
         <hr />
         <ul className="about-info">
           <li>

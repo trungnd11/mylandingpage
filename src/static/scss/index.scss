@@ -1,4 +1,4 @@
-
+@import "responsive";
 @import "container";
 @import "home";
 @import "about";
@@ -8,3 +8,9 @@
 @import "contact";
 @import "scrollTop";
 @import "navbar-mobile";
+
+body {
+  @include Responsive(SM) {
+    font-size: 18px;
+  }
+}
