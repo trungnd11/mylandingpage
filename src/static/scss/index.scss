@@ -8,8 +8,10 @@
 @import "contact";
 @import "scrollTop";
 @import "navbar-mobile";
+@import "navigate-mobile";
 
 body {
+  box-sizing: border-box;
   @include Responsive(SM) {
     font-size: 18px;
   }

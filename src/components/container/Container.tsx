@@ -11,6 +11,7 @@ import ScrollTop from "../scrollTop/ScrollTop";
 import { useEffect, useState, useRef, useContext } from "react";
 import { ThemeContext } from "../ContextTheme/ContextTheme";
 import NavBarMobile from "../../page/navBarMobile/NavBarMobile";
+import NavigateMobile from "../../page/navigate-mobile/NavigateMobile";
 
 interface ActiveObj {
   home: boolean;
@@ -123,6 +124,7 @@ export default function Container() {
   return (
     <div className="container-profile">
       <NavBarMobile ref={navBarRef} />
+      <NavigateMobile />
       <div className={`slideBar ${theme === "dark" && "slideBar-dark"}`}>
         <div className="wapper-menu">
           <div className="avatar">

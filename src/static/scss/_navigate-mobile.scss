@@ -1,0 +1,42 @@
+.navigate-mobile {
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  z-index: 5;
+  padding: .5rem 1rem;
+  box-sizing: border-box;
+
+  .list-item {
+    background: $colorWhite;
+    border-radius: .8rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    ul {
+      display: flex;
+      padding-left: 0;
+      list-style-type: none;
+      justify-content: space-evenly;
+
+      a {
+        text-decoration: none;
+        flex-direction: column;
+        align-items: center;
+        flex-basis: 20%;
+        .item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: .5rem;
+          flex-basis: 20%;
+          i {
+             font-size: 1.5rem;
+             color: $mainColor;
+          }
+
+          span {
+            color: #000;
+          }
+        }
+      }
+    }
+  }
+}
