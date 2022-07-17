@@ -2,16 +2,16 @@
   position: fixed;
   width: 50px;
   height: 50px;
-  right: 1%;
-  bottom: 2%;
+  right: 1rem;
+  bottom: 6rem;
   border-radius: 50%;
   z-index: 10;
   box-shadow: 0 0 5px 2px #0000ff;
   cursor: pointer;
 
   @include Responsive(XS) {
-    right: 10px;
-    bottom: 20px;
+    right: 1rem;
+    bottom: 5.5rem;
     width: 40px;
     height: 40px;
   }
