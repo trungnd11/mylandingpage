@@ -5,6 +5,7 @@ import { ThemeContext } from "../../components/ContextTheme/ContextTheme";
 import imgZsneaker from "../../static/image/portfolio-01.png";
 import img30shine from "../../static/image/30shine.png";
 import imgYody from "../../static/image/yody.png";
+import huyentrang from "../../static/image/huyentrang.png";
 
 const imgArr = [
   {
@@ -36,12 +37,12 @@ const imgArr = [
   },
   {
     id: 4,
-    name: "Shop Z-Sneaker",
-    img: imgZsneaker,
+    name: "Huyen Trang Beauty Center",
+    img: huyentrang,
     type: "backend",
-    language: "java",
-    linkgit: "https://github.com/trungnd9/shop-sneaker",
-    linkdemo: "https://trungnd11.github.io/z-sneaker",
+    language: "NodeJs - React",
+    linkgit: "https://github.com/trungnd11/huyentrangbeautycenter",
+    linkdemo: "https://huyentrangtranbeautycenter.herokuapp.com",
   },
 ];
 
