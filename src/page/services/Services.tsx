@@ -13,18 +13,18 @@ const serviceArr = [
   },
   {
     name: "ReactJs",
-    description: "1 years",
+    description: "2 years",
     icon: "fa-brands fa-react",
   },
   {
     name: "Java(Spring boot)",
-    description: "1 years",
+    description: "1 year",
     icon: "fa-brands fa-java",
   },
   {
-    name: "Jquery",
-    description: "Use it proficiently",
-    icon: "fa-brands fa-js-square",
+    name: "Angular",
+    description: "1 year",
+    icon: "fa-brands fa-angular",
   },
   {
     name: "Bootstrap 4 ,5",
