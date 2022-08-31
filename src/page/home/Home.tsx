@@ -1,10 +1,20 @@
 /* eslint-disable react/style-prop-object */
 /* eslint-disable no-restricted-globals */
-import { useEffect, useRef } from 'react';
+import { useContext, useEffect, useRef } from 'react';
+import { zoomInUp } from "react-animations";
+import styled, { keyframes } from "styled-components";
+import { ThemeContext } from '../../components/ContextTheme/ContextTheme';
+
+const titleInAnimation = keyframes`${zoomInUp}`;
+
+const Content = styled.div`
+  animation: 1s ${titleInAnimation} forwards;
+`;
 
 export default function Home() {
   const height = screen.height / 1.5;
   const width = screen.width <= 820 ? screen.width : (screen.width * 80) / 100;
+  const { theme } = useContext(ThemeContext);
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -148,7 +158,7 @@ export default function Home() {
           style={{ position: "absolute", inset: "0px", zIndex: "1" }}
         />
       </div>
-      <div className="content">
+      <Content className={`content ${theme === "dark" ? "content-dark" : ""}`}>
         <h5>
           Hello, my name is <strong>Trung</strong>
         </h5>
@@ -168,10 +178,15 @@ export default function Home() {
         </h1>
         <p>
           I'm a Full-Stack Web Developer with extensive experience for over 2
-          years. My expertise is to create and design Websites, ERP for Enterprise and many more...
+          years. My expertise is to create and design Websites, ERP for
+          Enterprise and many more...
         </p>
         <div className="wapper-btn">
-          <a href="#project" className="custom-btn btn-12" style={{ marginRight: "20px" }}>
+          <a
+            href="#project"
+            className="custom-btn btn-12"
+            style={{ marginRight: "20px" }}
+          >
             <span>Click!</span>
             <span>Project</span>
           </a>
@@ -180,7 +195,7 @@ export default function Home() {
             <span>Hire Me</span>
           </a>
         </div>
-      </div>
+      </Content>
     </div>
   );
 }
