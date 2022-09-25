@@ -1,50 +1,10 @@
 import { useState, useContext, forwardRef, useImperativeHandle, useEffect } from "react";
-import { zoomInDown } from "react-animations";
+import { zoomInDown, fadeInLeft, fadeInRight } from "react-animations";
 import Radium from "radium";
+import { InView } from "react-intersection-observer";
+import styled, { keyframes } from "styled-components";
+import { imgArr } from "./PortfolioData"
 import { ThemeContext } from "../../components/ContextTheme/ContextTheme";
-import imgZsneaker from "../../static/image/portfolio-01.png";
-import img30shine from "../../static/image/30shine.png";
-import imgYody from "../../static/image/yody.png";
-import huyentrang from "../../static/image/huyentrang.png";
-
-const imgArr = [
-  {
-    id: 1,
-    name: "Shop Z-Sneaker",
-    img: imgZsneaker,
-    type: "fullstack",
-    language: "java",
-    linkgit: "https://github.com/trungnd9/shop-sneaker",
-    linkdemo: "https://trungnd11.github.io/z-sneaker/",
-  },
-  {
-    id: 2,
-    name: "30 Shine",
-    img: img30shine,
-    type: "frontend",
-    language: "ReactJs",
-    linkgit: "https://github.com/trungnd11/30shine",
-    linkdemo: "https://trungnd11.github.io/30shine",
-  },
-  {
-    id: 3,
-    name: "Yody Shop",
-    img: imgYody,
-    type: "frontend",
-    language: "ReactJs",
-    linkgit: "https://github.com/trungnd11/yodyshop",
-    linkdemo: "https://trungnd11.github.io/yodyshop",
-  },
-  {
-    id: 4,
-    name: "Huyen Trang Beauty Center",
-    img: huyentrang,
-    type: "backend",
-    language: "NodeJs - React",
-    linkgit: "https://github.com/trungnd11/huyentrangbeautycenter",
-    linkdemo: "https://huyentrangtranbeautycenter.herokuapp.com",
-  },
-];
 
 const animation = {
   bounce: {
@@ -52,6 +12,22 @@ const animation = {
     animationName: Radium.keyframes(zoomInDown, "bounce"),
   },
 };
+
+const leftInAnimation = keyframes`${fadeInLeft}`;
+const rightInAnimation = keyframes`${fadeInRight}`;
+const imgContent = keyframes`${zoomInDown}`;
+
+const ImgContent = styled.div`
+  animation: 3s ${imgContent} forwards;
+`;
+
+const LeftContent = styled.div`
+  animation: 3s ${leftInAnimation} forwards;
+`;
+
+const RightContent = styled.div`
+  animation: 3s ${rightInAnimation} forwards;
+`;
 
 function Portfolio(prop, ref) {
 
@@ -117,108 +93,124 @@ function Portfolio(prop, ref) {
   };
 
   return (
-    <div id="project" className={`wapper-portfolio ${theme === "dark" && "wapper-portfolio-dark"}`}>
-      <div className="container">
-        <div className="portfolio-heading">
-          <h2 className="portfolio-title">My Project</h2>
-          <p className="portfolio-description">
-            Always do as much as you can!
-          </p>
-        </div>
-        <div className="list-portfolio">
-          {theme !== "dark" ? (<ul className="list-inline works-filter">
-            <li
-              className={`list-inline-item ${tabActive.all && "tab-active"} `}
-              onClick={filterAll}
-            >
-              All
-            </li>
-            <li
-              className={`list-inline-item ${
-                tabActive.fullStack && "tab-active"
-              }`}
-              onClick={filterFullstack}
-            >
-              Full Stack
-            </li>
-            <li
-              className={`list-inline-item ${
-                tabActive.frontend && "tab-active"
-              }`}
-              onClick={filterFrontend}
-            >
-              Front End
-            </li>
-            <li
-              className={`list-inline-item ${
-                tabActive.backend && "tab-active"
-              }`}
-              onClick={filterBackend}
-            >
-              Back End
-            </li>
-          </ul>) : (<ul className="list-inline-dark works-filter">
-            <li
-              className={`list-inline-item-dark ${tabActive.all && "tab-active-dark"} `}
-              onClick={filterAll}
-            >
-              All
-            </li>
-            <li
-              className={`list-inline-item-dark ${
-                tabActive.fullStack && "tab-active-dark"
-              }`}
-              onClick={filterFullstack}
-            >
-              Full Stack
-            </li>
-            <li
-              className={`list-inline-item-dark ${
-                tabActive.frontend && "tab-active-dark"
-              }`}
-              onClick={filterFrontend}
-            >
-              Front End
-            </li>
-            <li
-              className={`list-inline-item-dark ${
-                tabActive.backend && "tab-active-dark"
-              }`}
-              onClick={filterBackend}
-            >
-              Back End
-            </li>
-          </ul>)}
-        </div>
-        <div className="img-portfolio">
-          {listImg.map((item) => (
-            <Radium.StyleRoot className="works-item" key={item.id}>
-              <div className="work-wapper" style={animation.bounce}>
-                <div className="item-overlay">
-                  <div className="category">{item.language}</div>
-                  <img src={item.img} alt="" />
-                  <div className="overlay-content">
-                    <h6 className="overlay-title">{item.name}</h6>
-                  </div>
-                  <div className="overlay-btn">
-                    <a
-                      className="btn btn-primary"
-                      href={item.linkgit}
-                      data-lity=""
-                    >
-                      Github
-                    </a>
-                    <a className="btn btn-warning" href={item.linkdemo}>
-                      Demo
-                    </a>
-                  </div>
-                </div>
+    <InView>
+      {({ref, inView}) => (
+        <div ref={ref}>
+          <div id="project" className={`wapper-portfolio ${theme === "dark" && "wapper-portfolio-dark"}`}>
+            <div className="container">
+              {
+                inView && (
+                  <LeftContent className="portfolio-heading">
+                    <h2 className="portfolio-title">My Project</h2>
+                    <p className="portfolio-description">
+                      Always do as much as you can!
+                    </p>
+                  </LeftContent>
+                )
+              }
+              {
+                inView && (
+                  <RightContent className="list-portfolio">
+                {theme !== "dark" ? (<ul className="list-inline works-filter">
+                  <li
+                    className={`list-inline-item ${tabActive.all && "tab-active"} `}
+                    onClick={filterAll}
+                  >
+                    All
+                  </li>
+                  <li
+                    className={`list-inline-item ${
+                      tabActive.fullStack && "tab-active"
+                    }`}
+                    onClick={filterFullstack}
+                  >
+                    Full Stack
+                  </li>
+                  <li
+                    className={`list-inline-item ${
+                      tabActive.frontend && "tab-active"
+                    }`}
+                    onClick={filterFrontend}
+                  >
+                    Front End
+                  </li>
+                  <li
+                    className={`list-inline-item ${
+                      tabActive.backend && "tab-active"
+                    }`}
+                    onClick={filterBackend}
+                  >
+                    Back End
+                  </li>
+                </ul>) : (<ul className="list-inline-dark works-filter">
+                  <li
+                    className={`list-inline-item-dark ${tabActive.all && "tab-active-dark"} `}
+                    onClick={filterAll}
+                  >
+                    All
+                  </li>
+                  <li
+                    className={`list-inline-item-dark ${
+                      tabActive.fullStack && "tab-active-dark"
+                    }`}
+                    onClick={filterFullstack}
+                  >
+                    Full Stack
+                  </li>
+                  <li
+                    className={`list-inline-item-dark ${
+                      tabActive.frontend && "tab-active-dark"
+                    }`}
+                    onClick={filterFrontend}
+                  >
+                    Front End
+                  </li>
+                  <li
+                    className={`list-inline-item-dark ${
+                      tabActive.backend && "tab-active-dark"
+                    }`}
+                    onClick={filterBackend}
+                  >
+                    Back End
+                  </li>
+                </ul>)}
+              </RightContent>
+                )
+              }
+              <div className="img-portfolio">
+                {listImg.map((item) => (
+                  inView && (
+                    <Radium.StyleRoot className="works-item" key={item.id}>
+                      <div className="work-wapper" style={animation.bounce}>
+                          <div className="item-overlay">
+                            <div className="category">{item.language}</div>
+                            <img src={item.img} alt="" />
+                            <div className="overlay-content">
+                              <h6 className="overlay-title">{item.name}</h6>
+                            </div>
+                            <div className="overlay-btn">
+                              <a
+                                className="btn btn-primary"
+                                href={item.linkgit}
+                                data-lity=""
+                              >
+                                Github
+                              </a>
+                              <a className="btn btn-warning" href={item.linkdemo}>
+                                Demo
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                  </Radium.StyleRoot>
+                  )
+                ))}
               </div>
-            </Radium.StyleRoot>
-          ))}
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      )}
+    </InView>
   );
 }
 

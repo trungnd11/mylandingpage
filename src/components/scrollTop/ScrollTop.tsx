@@ -1,5 +1,14 @@
 import { useContext } from "react";
+import { fadeInRightBig } from "react-animations";
+import styled, { keyframes } from "styled-components";
 import { ThemeContext } from "../ContextTheme/ContextTheme";
+
+const titleInAnimation = keyframes`${fadeInRightBig}`;
+
+const Content = styled.div`
+  animation: 1s ${titleInAnimation} forwards;
+`;
+
 export default function ScrollTop() {
   const { theme } = useContext(ThemeContext);
 
@@ -10,7 +19,7 @@ export default function ScrollTop() {
   }
 
   return (
-    <div
+    <Content
       className={`onTop ${theme === "dark" && "onTop-dark"}`}
       onClick={onTop}
     >
@@ -19,6 +28,6 @@ export default function ScrollTop() {
           theme === "dark" && "icon-dark"
         }`}
       ></i>
-    </div>
+    </Content>
   );
 }

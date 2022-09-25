@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 /* eslint-disable jsx-a11y/anchor-is-valid */
+import { useEffect, useState, useRef, useContext } from "react";
 import avatar from "../../static/image/avatar.jpg";
 import Home from "../../page/home/Home";
 import About from "../../page/about/About";
@@ -8,7 +9,6 @@ import Services from "../../page/services/Services";
 import Portfolio from "../../page/portfolio/Portfolio";
 import Contact from "../../page/contact/Contact";
 import ScrollTop from "../scrollTop/ScrollTop";
-import { useEffect, useState, useRef, useContext } from "react";
 import { ThemeContext } from "../ContextTheme/ContextTheme";
 import NavBarMobile from "../../page/navBarMobile/NavBarMobile";
 import NavigateMobile from "../../page/navigate-mobile/NavigateMobile";
@@ -336,7 +336,7 @@ export default function Container() {
         </div>
         <Home />
         <About ref={aboutRef} />
-        <Experience ref={experiencetRef} />
+        <Experience ref={experiencetRef} show={avtiveItem.experience} />
         <Services ref={programRef} />
         <Portfolio ref={projectRef} />
         <Contact ref={contactRef} />
