@@ -15,11 +15,6 @@ const animation = {
 
 const leftInAnimation = keyframes`${fadeInLeft}`;
 const rightInAnimation = keyframes`${fadeInRight}`;
-const imgContent = keyframes`${zoomInDown}`;
-
-const ImgContent = styled.div`
-  animation: 3s ${imgContent} forwards;
-`;
 
 const LeftContent = styled.div`
   animation: 3s ${leftInAnimation} forwards;
