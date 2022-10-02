@@ -100,7 +100,7 @@ export default function Container() {
       });
     } else if (
       heithScreen > projectRef.current + 500 &&
-      heithScreen < contactRef.current - 1000
+      heithScreen < contactRef.current - 1300
     ) {
       setActiveItem({
         home: false,

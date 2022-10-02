@@ -2,13 +2,15 @@
 /* eslint-disable no-restricted-globals */
 import { useContext, useEffect, useRef } from 'react';
 import { zoomInUp } from "react-animations";
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, css } from "styled-components";
+import { InView } from "react-intersection-observer";
 import { ThemeContext } from '../../components/ContextTheme/ContextTheme';
 
 const titleInAnimation = keyframes`${zoomInUp}`;
 
 const Content = styled.div`
-  animation: 1s ${titleInAnimation} forwards;
+  animation: ${(prop: { animate: boolean }) =>
+    prop.animate && css`2s ${titleInAnimation} forwards`};
 `;
 
 export default function Home() {
@@ -150,52 +152,59 @@ export default function Home() {
   }, [height, width]);
 
   return (
-    <div id="home" className="wapper-home">
-      <div className="water-effect jquery-ripples">
-        <canvas
-          ref={canvasRef}
-          id="canvas"
-          style={{ position: "absolute", inset: "0px", zIndex: "1" }}
-        />
-      </div>
-      <Content className={`content ${theme === "dark" ? "content-dark" : ""}`}>
-        <h5>
-          Hello, my name is <strong>Trung</strong>
-        </h5>
-        <h1>
-          <span>I'm a </span>
-          <span className="waviy">
-            <span className="run-text">D</span>
-            <span className="run-text">e</span>
-            <span className="run-text">v</span>
-            <span className="run-text">e</span>
-            <span className="run-text">l</span>
-            <span className="run-text">o</span>
-            <span className="run-text">p</span>
-            <span className="run-text">e</span>
-            <span className="run-text">r</span>
-          </span>
-        </h1>
-        <p>
-          I'm a Full-Stack Web Developer with extensive experience for over 2
-          years. My expertise is to create and design Websites, ERP for
-          Enterprise and many more...
-        </p>
-        <div className="wapper-btn">
-          <a
-            href="#project"
-            className="custom-btn btn-12"
-            style={{ marginRight: "20px" }}
+    <InView>
+      {({ ref, inView }) => (
+        <div ref={ref} id="home" className="wapper-home">
+          <div className="water-effect jquery-ripples">
+            <canvas
+              ref={canvasRef}
+              id="canvas"
+              style={{ position: "absolute", inset: "0px", zIndex: "1" }}
+            />
+          </div>
+          <Content
+            animate={inView}
+            className={`content ${theme === "dark" ? "content-dark" : ""}`}
           >
-            <span>Click!</span>
-            <span>Project</span>
-          </a>
-          <a href="#about" className="custom-btn btn-12">
-            <span>Click!</span>
-            <span>Hire Me</span>
-          </a>
+            <h5>
+              Hello, my name is <strong>Trung</strong>
+            </h5>
+            <h1>
+              <span>I'm a </span>
+              <span className="waviy">
+                <span className="run-text">D</span>
+                <span className="run-text">e</span>
+                <span className="run-text">v</span>
+                <span className="run-text">e</span>
+                <span className="run-text">l</span>
+                <span className="run-text">o</span>
+                <span className="run-text">p</span>
+                <span className="run-text">e</span>
+                <span className="run-text">r</span>
+              </span>
+            </h1>
+            <p>
+              I'm a Full-Stack Web Developer with extensive experience for over
+              2 years. My expertise is to create and design Websites, ERP for
+              Enterprise and many more...
+            </p>
+            <div className="wapper-btn">
+              <a
+                href="#project"
+                className="custom-btn btn-12"
+                style={{ marginRight: "20px" }}
+              >
+                <span>Click!</span>
+                <span>Project</span>
+              </a>
+              <a href="#about" className="custom-btn btn-12">
+                <span>Click!</span>
+                <span>Hire Me</span>
+              </a>
+            </div>
+          </Content>
         </div>
-      </Content>
-    </div>
+      )}
+    </InView>
   );
 }
