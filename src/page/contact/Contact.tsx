@@ -3,6 +3,8 @@ import styled, { keyframes, css } from "styled-components";
 import { InView } from "react-intersection-observer";
 import { bounceIn } from "react-animations";
 import { ThemeContext } from "../../components/ContextTheme/ContextTheme";
+import { OffsetModel } from "../../model/OffsetModel";
+import { offsetDefault } from "../../components/container/Container";
 
 const Animation = keyframes`${bounceIn}`;
 
@@ -13,14 +15,19 @@ const ContactAnimate = styled.div`
 
 function Contact(prop:any, ref:any) {
   const { theme } = useContext(ThemeContext);
-  const [offset, setOffset] = useState<number>(0);
+  const [offset, setOffset] = useState<OffsetModel>(offsetDefault);
 
   useImperativeHandle(ref, () => offset, [offset]);
 
   useEffect(() => {
-    const offsetDiv: any = document.getElementById("contact");
-    setOffset(offsetDiv.offsetTop);
-  }, [offset]);
+    const offsetDiv: HTMLDivElement | any = document.getElementById("contact");
+    if (offsetDiv) {
+      setOffset(() => ({
+        offsetHeight: offsetDiv.offsetHeight,
+        offsetTop: offsetDiv.offsetTop,
+      }));
+    }
+  }, []);
   return (
     <InView>
       {({ ref, inView }) => (

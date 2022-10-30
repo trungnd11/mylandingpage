@@ -1,6 +1,5 @@
 import { useState, useContext, forwardRef, useImperativeHandle, useEffect } from "react";
 import { zoomInDown, fadeInLeft, fadeInRight } from "react-animations";
-import Radium from "radium";
 import { InView } from "react-intersection-observer";
 import styled, { keyframes, css } from "styled-components";
 import { imgArr } from "./PortfolioData"
@@ -45,8 +44,13 @@ function Portfolio(prop, ref) {
 
   useEffect(() => {
     const offSetDiv = document.getElementById("project");
-    setOffset(offSetDiv.offsetTop);
-  }, [offset])
+    if (offSetDiv) {
+      setOffset(() => ({
+        offsetHeight: offSetDiv.offsetHeight,
+        offsetTop: offSetDiv.offsetTop,
+      }));
+    }
+  }, [])
 
   const filterAll = () => {
     setListImg(imgArr);

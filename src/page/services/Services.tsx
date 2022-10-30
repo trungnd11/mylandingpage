@@ -1,5 +1,6 @@
 import {
   forwardRef,
+  Fragment,
   useContext,
   useEffect,
   useImperativeHandle,
@@ -10,6 +11,8 @@ import { bounceInDown, fadeInRight, fadeInLeft } from "react-animations";
 import styled, { keyframes, css } from "styled-components";
 import { InView } from "react-intersection-observer";
 import { serviceArr } from "./ServicesData";
+import { OffsetModel } from "../../model/OffsetModel";
+import { offsetDefault } from "../../components/container/Container";
 
 const tilte = keyframes`${bounceInDown}`;
 const rightInAnimation = keyframes`${fadeInRight}`;
@@ -32,14 +35,19 @@ const ContentLeft = styled.div`
 
 function Services(prop: any, ref: any) {
   const { theme } = useContext(ThemeContext);
-  const [offset, setOffset] = useState<number>(0);
+  const [offset, setOffset] = useState<OffsetModel>(offsetDefault);
 
   useImperativeHandle(ref, () => offset, [offset]);
 
   useEffect(() => {
-    const offsetDiv: any = document.getElementById("services");
-    setOffset(offsetDiv.offsetTop);
-  }, [offset]);
+    const offsetDiv: HTMLDivElement | any = document.getElementById("services");
+    if (offsetDiv) {
+      setOffset(() => ({
+        offsetHeight: offsetDiv.offsetHeight,
+        offsetTop: offsetDiv.offsetTop,
+      }));
+    }
+  }, []);
 
   return (
     <InView>
@@ -56,7 +64,7 @@ function Services(prop: any, ref: any) {
             </div>
             <div className="services-content">
               {serviceArr.map((item, index) => (
-                <>
+                <Fragment key={index}>
                   {index < 3 ? (
                     <ContentRight
                       animate={inView}
@@ -110,7 +118,7 @@ function Services(prop: any, ref: any) {
                       </div>
                     </ContentLeft>
                   )}
-                </>
+                </Fragment>
               ))}
             </div>
           </div>

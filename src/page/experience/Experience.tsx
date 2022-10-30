@@ -9,6 +9,8 @@ import { InView } from "react-intersection-observer";
 import { fadeInLeft, fadeInRight } from "react-animations";
 import styled, { keyframes, css } from "styled-components";
 import { ThemeContext } from "../../components/ContextTheme/ContextTheme";
+import { OffsetModel } from "../../model/OffsetModel";
+import { offsetDefault } from "../../components/container/Container";
 
 const leftInAnimation = keyframes`${fadeInLeft}`;
 const rightInAnimation = keyframes`${fadeInRight}`;
@@ -25,14 +27,19 @@ const Company = styled.div`
 
 function Experience(prop: any, ref: any) {
   const { theme } = useContext(ThemeContext);
-  const [offset, setOffset] = useState<number>(0);
+  const [offset, setOffset] = useState<OffsetModel>(offsetDefault);
 
   useImperativeHandle(ref, () => offset, [offset]);
 
   useEffect(() => {
-    const offsetDiv: any = document.getElementById("experience");
-    setOffset(offsetDiv.offsetTop);
-  }, [offset]);
+    const offsetDiv: HTMLDivElement | any = document.getElementById("experience");
+    if (offsetDiv) {
+      setOffset(() => ({
+        offsetHeight: offsetDiv.offsetHeight,
+        offsetTop: offsetDiv.offsetTop,
+      }));
+    }
+  }, []);
 
   return (
     <InView>

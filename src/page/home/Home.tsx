@@ -1,10 +1,12 @@
 /* eslint-disable react/style-prop-object */
 /* eslint-disable no-restricted-globals */
-import { useContext, useEffect, useRef } from 'react';
+import { forwardRef, useContext, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { zoomInUp } from "react-animations";
 import styled, { keyframes, css } from "styled-components";
 import { InView } from "react-intersection-observer";
 import { ThemeContext } from '../../components/ContextTheme/ContextTheme';
+import { OffsetModel } from '../../model/OffsetModel';
+import { offsetDefault } from '../../components/container/Container';
 
 const titleInAnimation = keyframes`${zoomInUp}`;
 
@@ -13,12 +15,15 @@ const Content = styled.div`
     prop.animate && css`2s ${titleInAnimation} forwards`};
 `;
 
-export default function Home() {
+function Home(prop: any, ref: any) {
   const height = screen.height / 1.5;
   const width = screen.width <= 820 ? screen.width : (screen.width * 80) / 100;
   const { theme } = useContext(ThemeContext);
+  const [offset, setOffset] = useState<OffsetModel>(offsetDefault);
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useImperativeHandle(ref, () => offset, [offset]);
 
   useEffect(() => {
     const canvas: any = document.querySelector("#canvas");
@@ -35,7 +40,7 @@ export default function Home() {
       count: 40,
       vX: 3,
       vY: 3,
-      range: 150
+      range: 150,
     };
     const gradient = context.createLinearGradient(0, 0, W, H);
     gradient.addColorStop(0, "#5ca6faf8");
@@ -148,8 +153,18 @@ export default function Home() {
         dots.push(new Dot(positionX, positionY, vx, vy, r));
       }
     });
-    
   }, [height, width]);
+
+  useEffect(() => {
+    const offsetDiv: HTMLDivElement | any =
+      document.getElementById("home");
+    if (offsetDiv) {
+      setOffset(() => ({
+        offsetHeight: offsetDiv.offsetHeight,
+        offsetTop: offsetDiv.offsetTop,
+      }));
+    }
+  }, []);
 
   return (
     <InView>
@@ -208,3 +223,5 @@ export default function Home() {
     </InView>
   );
 }
+
+export default forwardRef(Home);

@@ -1,10 +1,19 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import avatar from "../../static/image/avatar2.jpg";
-import { forwardRef, useContext, useEffect, useImperativeHandle, useRef, useState } from "react";
+import {
+  forwardRef,
+  useContext,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from "react";
 import { InView } from "react-intersection-observer";
 import { rotateInDownRight, rotateInDownLeft } from "react-animations";
 import styled, { keyframes, css } from "styled-components";
 import { ThemeContext } from "../../components/ContextTheme/ContextTheme";
+import { OffsetModel } from "../../model/OffsetModel";
+import { offsetDefault } from "../../components/container/Container";
 
 const leftInAnimation = keyframes`${rotateInDownLeft}`;
 const rightInAnimation = keyframes`${rotateInDownRight}`;
@@ -21,15 +30,18 @@ const Info = styled.div`
 
 function About(prop: any, ref: any) {
   const { theme } = useContext(ThemeContext);
-  const aboutRef = useRef<any>(null);
-  const [offset, setOffset] = useState<number>(0);
-  
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const [offset, setOffset] = useState<OffsetModel>(offsetDefault);
+
   useImperativeHandle(ref, () => offset, [offset]);
-  
+
   useEffect(() => {
-    setOffset(aboutRef.current.offsetTop);
-  }, [offset]);
-  
+    if (aboutRef.current)
+      setOffset(() => ({
+        offsetHeight: aboutRef.current?.offsetHeight,
+        offsetTop: aboutRef.current?.offsetTop,
+      }));
+  }, []);
 
   return (
     <InView>
