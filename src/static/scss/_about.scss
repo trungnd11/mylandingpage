@@ -20,10 +20,16 @@
 
     .about-img {
       max-width: 50%;
-      padding: 16px;
+      margin: 1rem;
       overflow: hidden;
       img {
         width: 100%;
+        border-radius: 6px;
+        transition: 1s;
+
+        &:hover {
+          transform: scale(1.5);
+        }
       }
 
       @include Responsive(XS) {
