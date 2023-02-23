@@ -68,21 +68,17 @@ function Services(prop: any, ref: any) {
                   {index < 3 ? (
                     <ContentRight
                       animate={inView}
-                      className={`single-service ${
-                        theme === "dark" && "single-service-dark"
-                      }`}
+                      className={`single-service ${theme === "dark" && "single-service-dark"
+                        }`}
                       key={index}
                     >
-                      <i
-                        className={`${item.icon} ${
-                          theme === "dark" && "icon-dark"
-                        }`}
-                      />
+                      {
+                        item.icon
+                      }
                       <div className="service-body">
                         <h6
-                          className={`service-title ${
-                            theme === "dark" && "service-title-dark"
-                          }`}
+                          className={`service-title ${theme === "dark" && "service-title-dark"
+                            }`}
                         >
                           {item.name}
                         </h6>
@@ -94,21 +90,17 @@ function Services(prop: any, ref: any) {
                   ) : (
                     <ContentLeft
                       animate={inView}
-                      className={`single-service ${
-                        theme === "dark" && "single-service-dark"
-                      }`}
+                      className={`single-service ${theme === "dark" && "single-service-dark"
+                        }`}
                       key={index}
                     >
-                      <i
-                        className={`${item.icon} ${
-                          theme === "dark" && "icon-dark"
-                        }`}
-                      />
+                      {
+                        item.icon
+                      }
                       <div className="service-body">
                         <h6
-                          className={`service-title ${
-                            theme === "dark" && "service-title-dark"
-                          }`}
+                          className={`service-title ${theme === "dark" && "service-title-dark"
+                            }`}
                         >
                           {item.name}
                         </h6>
