@@ -12,6 +12,7 @@ import ScrollTop from "../scrollTop/ScrollTop";
 import { ThemeContext } from "../ContextTheme/ContextTheme";
 import NavBarMobile from "../../page/navBarMobile/NavBarMobile";
 import NavigateMobile from "../../page/navigate-mobile/NavigateMobile";
+import { OffsetModel } from "../../model/OffsetModel";
 
 interface ActiveObj {
   home: boolean;
@@ -22,8 +23,12 @@ interface ActiveObj {
   contact: boolean;
 }
 
-export default function Container() {
+export const offsetDefault: OffsetModel = {
+  offsetHeight: 0,
+  offsetTop: 0,
+};
 
+export default function Container() {
   const [showScroll, setshowScroll] = useState<boolean>();
   const navBarRef = useRef<any>();
   const { theme, changeTheme } = useContext(ThemeContext);
@@ -35,19 +40,20 @@ export default function Container() {
     project: false,
     contact: false,
   });
-  const aboutRef = useRef<number>(0);
-  const experiencetRef = useRef<number>(0);
-  const programRef = useRef<number>(0);
-  const projectRef = useRef<number>(0);
-  const contactRef = useRef<number>(0);
+  const homeRef = useRef<OffsetModel>(offsetDefault);
+  const aboutRef = useRef<OffsetModel>(offsetDefault);
+  const experiencetRef = useRef<OffsetModel>(offsetDefault);
+  const programRef = useRef<OffsetModel>(offsetDefault);
+  const projectRef = useRef<OffsetModel>(offsetDefault);
+  const contactRef = useRef<OffsetModel>(offsetDefault);
 
   const closeNavbar = (): void => {
     const show: boolean = navBarRef.current.showNav;
     show && navBarRef.current.showMenuItem();
-  }
+  };
 
   const activeSlideBar = (heithScreen: number): void => {
-    if (heithScreen <= aboutRef.current - 500) {
+    if (heithScreen <= homeRef.current.offsetHeight) {
       setActiveItem({
         home: true,
         about: false,
@@ -57,8 +63,9 @@ export default function Container() {
         contact: false,
       });
     } else if (
-      heithScreen > aboutRef.current - 500 &&
-      heithScreen <= experiencetRef.current - 200
+      heithScreen > homeRef.current.offsetHeight &&
+      heithScreen <=
+        aboutRef.current.offsetTop + aboutRef.current.offsetHeight
     ) {
       setActiveItem({
         home: false,
@@ -68,7 +75,13 @@ export default function Container() {
         project: false,
         contact: false,
       });
-    } else if (heithScreen > experiencetRef.current - 200 && heithScreen <= programRef.current - 200) {
+    } else if (
+      heithScreen >
+        aboutRef.current.offsetTop + aboutRef.current.offsetHeight &&
+      heithScreen <=
+        experiencetRef.current.offsetTop +
+          experiencetRef.current.offsetHeight
+    ) {
       setActiveItem({
         home: false,
         about: false,
@@ -77,7 +90,13 @@ export default function Container() {
         project: false,
         contact: false,
       });
-    } else if (heithScreen > programRef.current - 200 && heithScreen <= projectRef.current - 200) {
+    } else if (
+      heithScreen >
+        experiencetRef.current.offsetTop +
+          experiencetRef.current.offsetHeight &&
+      heithScreen <=
+        programRef.current.offsetTop + programRef.current.offsetHeight
+    ) {
       setActiveItem({
         home: false,
         about: false,
@@ -87,8 +106,10 @@ export default function Container() {
         contact: false,
       });
     } else if (
-      heithScreen > projectRef.current - 200 &&
-      heithScreen <= projectRef.current + 500
+      heithScreen >
+        programRef.current.offsetTop + programRef.current.offsetHeight &&
+      heithScreen <
+        projectRef.current.offsetTop + 500
     ) {
       setActiveItem({
         home: false,
@@ -99,8 +120,8 @@ export default function Container() {
         contact: false,
       });
     } else if (
-      heithScreen > projectRef.current + 500 &&
-      heithScreen < contactRef.current - 1000
+      heithScreen >
+      projectRef.current.offsetTop + 500
     ) {
       setActiveItem({
         home: false,
@@ -111,14 +132,13 @@ export default function Container() {
         contact: true,
       });
     }
-  }
+  };
 
   useEffect(() => {
     window.addEventListener("scroll", (e) => {
       window.scrollY > 500 ? setshowScroll(true) : setshowScroll(false);
       activeSlideBar(window.scrollY);
     });
-
   }, []);
 
   return (
@@ -334,7 +354,7 @@ export default function Container() {
             <i className="fa-solid fa-sun"></i>
           )}
         </div>
-        <Home />
+        <Home ref={homeRef} />
         <About ref={aboutRef} />
         <Experience ref={experiencetRef} show={avtiveItem.experience} />
         <Services ref={programRef} />

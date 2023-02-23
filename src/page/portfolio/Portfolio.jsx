@@ -1,27 +1,27 @@
 import { useState, useContext, forwardRef, useImperativeHandle, useEffect } from "react";
 import { zoomInDown, fadeInLeft, fadeInRight } from "react-animations";
-import Radium from "radium";
 import { InView } from "react-intersection-observer";
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 import { imgArr } from "./PortfolioData"
 import { ThemeContext } from "../../components/ContextTheme/ContextTheme";
 
-const animation = {
-  bounce: {
-    animation: "x 1s",
-    animationName: Radium.keyframes(zoomInDown, "bounce"),
-  },
-};
-
 const leftInAnimation = keyframes`${fadeInLeft}`;
 const rightInAnimation = keyframes`${fadeInRight}`;
+const zoomInAnimation = keyframes`${zoomInDown}`;
+
+const ImageContent = styled.div`
+  animation: ${(prop) =>
+    prop.animate && css`2s ${zoomInAnimation} forwards`};
+`;
 
 const LeftContent = styled.div`
-  animation: 3s ${leftInAnimation} forwards;
+  animation: ${(prop) =>
+    prop.animate && css`2s ${leftInAnimation} forwards`};
 `;
 
 const RightContent = styled.div`
-  animation: 3s ${rightInAnimation} forwards;
+  animation: ${(prop) =>
+    prop.animate && css`2s ${rightInAnimation} forwards`};
 `;
 
 function Portfolio(prop, ref) {
@@ -44,8 +44,13 @@ function Portfolio(prop, ref) {
 
   useEffect(() => {
     const offSetDiv = document.getElementById("project");
-    setOffset(offSetDiv.offsetTop);
-  }, [offset])
+    if (offSetDiv) {
+      setOffset(() => ({
+        offsetHeight: offSetDiv.offsetHeight,
+        offsetTop: offSetDiv.offsetTop,
+      }));
+    }
+  }, [])
 
   const filterAll = () => {
     setListImg(imgArr);
@@ -93,19 +98,13 @@ function Portfolio(prop, ref) {
         <div ref={ref}>
           <div id="project" className={`wapper-portfolio ${theme === "dark" && "wapper-portfolio-dark"}`}>
             <div className="container">
-              {
-                inView && (
-                  <LeftContent className="portfolio-heading">
-                    <h2 className="portfolio-title">My Project</h2>
-                    <p className="portfolio-description">
-                      Always do as much as you can!
-                    </p>
-                  </LeftContent>
-                )
-              }
-              {
-                inView && (
-                  <RightContent className="list-portfolio">
+              <LeftContent animate={inView} className="portfolio-heading">
+                <h2 className="portfolio-title">My Project</h2>
+                <p className="portfolio-description">
+                  Always do as much as you can!
+                </p>
+              </LeftContent>
+              <RightContent animate={inView} className="list-portfolio">
                 {theme !== "dark" ? (<ul className="list-inline works-filter">
                   <li
                     className={`list-inline-item ${tabActive.all && "tab-active"} `}
@@ -170,35 +169,29 @@ function Portfolio(prop, ref) {
                   </li>
                 </ul>)}
               </RightContent>
-                )
-              }
               <div className="img-portfolio">
                 {listImg.map((item) => (
-                  inView && (
-                    <Radium.StyleRoot className="works-item" key={item.id}>
-                      <div className="work-wapper" style={animation.bounce}>
-                          <div className="item-overlay">
-                            <div className="category">{item.language}</div>
-                            <img src={item.img} alt="" />
-                            <div className="overlay-content">
-                              <h6 className="overlay-title">{item.name}</h6>
-                            </div>
-                            <div className="overlay-btn">
-                              <a
-                                className="btn btn-primary"
-                                href={item.linkgit}
-                                data-lity=""
-                              >
-                                Github
-                              </a>
-                              <a className="btn btn-warning" href={item.linkdemo}>
-                                Demo
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                  </Radium.StyleRoot>
-                  )
+                  <ImageContent animate={inView} className="work-wapper works-item" key={item.id}>
+                    <div className="item-overlay">
+                      <div className="category">{item.language}</div>
+                      <img src={item.img} alt="" />
+                      <div className="overlay-content">
+                        <h6 className="overlay-title">{item.name}</h6>
+                      </div>
+                      <div className="overlay-btn">
+                        <a
+                          className="btn btn-primary"
+                          href={item.linkgit}
+                          data-lity=""
+                        >
+                          Github
+                        </a>
+                        <a className="btn btn-warning" href={item.linkdemo}>
+                          Demo
+                        </a>
+                      </div>
+                    </div>
+                  </ImageContent>
                 ))}
               </div>
             </div>
