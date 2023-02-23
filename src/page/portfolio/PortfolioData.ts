@@ -38,6 +38,6 @@ export const imgArr = [
     type: "backend",
     language: "NodeJs - React",
     linkgit: "https://github.com/trungnd11/huyentrangbeautycenter",
-    linkdemo: "https://huyentrangtranbeautycenter.herokuapp.com",
+    linkdemo: "https://huyentrangbeautycenter.vercel.app",
   },
 ];

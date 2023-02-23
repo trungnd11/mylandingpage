@@ -25,7 +25,7 @@ export const serviceArr = [
     icon: "fa-brands fa-angular",
   },
   {
-    name: "Bootstrap 4 ,5",
+    name: "Typescript",
     description: "Use it proficiently",
     icon: "fa-brands fa-bootstrap",
   },
