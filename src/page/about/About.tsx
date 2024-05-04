@@ -14,6 +14,7 @@ import styled, { keyframes, css } from "styled-components";
 import { ThemeContext } from "../../components/ContextTheme/ContextTheme";
 import { OffsetModel } from "../../model/OffsetModel";
 import { offsetDefault } from "../../components/container/Container";
+import { getAgeByYearOfBirth } from "../../helpper/helpper";
 
 const leftInAnimation = keyframes`${rotateInDownLeft}`;
 const rightInAnimation = keyframes`${rotateInDownRight}`;
@@ -86,7 +87,7 @@ function About(prop: any, ref: any) {
                   </p>
                 </li>
                 <li>
-                  <span>Age:</span> <p>26</p>
+                  <span>Age:</span> <p>{ getAgeByYearOfBirth(1995) }</p>
                 </li>
                 <li>
                   <span>From:</span> <p>Hanoi</p>

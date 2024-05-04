@@ -92,6 +92,10 @@ function Portfolio(prop, ref) {
     });
   };
 
+  const navigatorLink = (link) => {
+    window.open(link);
+  }
+
   return (
     <InView>
       {({ref, inView}) => (
@@ -179,16 +183,18 @@ function Portfolio(prop, ref) {
                         <h6 className="overlay-title">{item.name}</h6>
                       </div>
                       <div className="overlay-btn">
-                        <a
+                        <span
                           className="btn btn-primary"
-                          href={item.linkgit}
-                          data-lity=""
+                          onClick={() => navigatorLink(item.linkgit)}
                         >
                           Github
-                        </a>
-                        <a className="btn btn-warning" href={item.linkdemo}>
+                        </span>
+                        <span
+                          className="btn btn-warning"
+                          onClick={() => navigatorLink(item.linkdemo)}
+                        >
                           Demo
-                        </a>
+                        </span>
                       </div>
                     </div>
                   </ImageContent>

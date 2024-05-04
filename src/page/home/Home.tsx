@@ -200,7 +200,7 @@ function Home(prop: any, ref: any) {
             </h1>
             <p>
               I'm a Full-Stack Web Developer with extensive experience for over
-              2 years. My expertise is to create and design Websites, ERP for
+              5 years. My expertise is to create and design Websites, Wallet, ERP for
               Enterprise and many more...
             </p>
             <div className="wapper-btn">
