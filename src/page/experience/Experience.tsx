@@ -25,7 +25,7 @@ const Company = styled.div`
     prop.animate && css`2s ${rightInAnimation} forwards`};
 `;
 
-function Experience(prop: any, ref: any) {
+function Experience(_prop: any, ref: any) {
   const { theme } = useContext(ThemeContext);
   const [offset, setOffset] = useState<OffsetModel>(offsetDefault);
 
@@ -113,7 +113,17 @@ function Experience(prop: any, ref: any) {
                     theme === "dark" && "icon-dark"
                   }`}
                 ></i>
-                <h4>VETC</h4> <h6>2021 - Present</h6>
+                <h4>VETC</h4> <h6>2021 - 2024</h6>
+              </div>
+              <div
+                className={`exp-block ${theme === "dark" && "exp-block-dark"}`}
+              >
+                <i
+                  className={`fa-solid fa-building ${
+                    theme === "dark" && "icon-dark"
+                  }`}
+                ></i>
+                <h4>FPT</h4> <h6>2024 - Present</h6>
               </div>
             </Company>
           </div>

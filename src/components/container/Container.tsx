@@ -134,6 +134,8 @@ export default function Container() {
     }
   };
 
+  const handleNavigate = (link: string) => window.open(link);
+
   useEffect(() => {
     window.addEventListener("scroll", (e) => {
       window.scrollY > 500 ? setshowScroll(true) : setshowScroll(false);
@@ -324,17 +326,20 @@ export default function Container() {
           </div>
         </div>
         <div className="link-git">
-          <a
-            href="https://github.com/trungnd11"
+          <div
             className={`btn github ${theme === "dark" && "github-dark"}`}
+            onClick={() => handleNavigate("https://github.com/trungnd11")}
           >
             <i className="fa-brands fa-github" />
             Github
-          </a>
-          <a href="https://gitlab.com/trungnd11" className="btn gitlab">
+          </div>
+          <div 
+            className="btn gitlab"
+            onClick={() => handleNavigate("https://gitlab.com/trungnd11")}
+          >
             <i className="fa-brands fa-gitlab" />
             Gitlab
-          </a>
+          </div>
           <h6>Copyright © 2020 Trung </h6>
         </div>
       </div>
