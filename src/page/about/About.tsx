@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import avatar from "../../static/image/avatar2.jpg";
+import avatar from "../../static/image/avatar3.jpeg";
 import {
   forwardRef,
   useContext,
@@ -20,8 +20,7 @@ const leftInAnimation = keyframes`${rotateInDownLeft}`;
 const rightInAnimation = keyframes`${rotateInDownRight}`;
 
 const Image = styled.div`
-  animation: ${(prop: { animate: boolean }) =>
-    prop.animate && css`2s ${leftInAnimation} forwards`};
+  animation: ${(prop: { animate: boolean }) => prop.animate && css`2s ${leftInAnimation} forwards`};
 `;
 
 const Info = styled.div`
