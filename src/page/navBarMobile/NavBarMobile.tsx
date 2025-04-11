@@ -1,16 +1,16 @@
 
 import { forwardRef, useState, useImperativeHandle, useContext } from "react";
-import { ThemeContext } from "../../components/ContextTheme/ContextTheme";
-import avatar from "../../static/image/avatar.jpg";
+import { ThemeContext } from "@/components/ContextTheme/ContextTheme";
+import avatar from "@/assets/image/avatar.jpg";
 
 function NavBarMobile(prop: any, ref: any) {
-  const [showNav, setshowNav] = useState<boolean>();
+  const [showNav, setShowNav] = useState<boolean>();
   const { theme } = useContext(ThemeContext);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useImperativeHandle(ref, () => ({showMenuItem, showNav}), [showNav]);
 
   const showMenuItem = () => {
-    setshowNav(!showNav);
+    setShowNav(!showNav);
   }
 
   return (

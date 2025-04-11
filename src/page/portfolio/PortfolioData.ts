@@ -1,7 +1,7 @@
-import imgZsneaker from "../../static/image/portfolio-01.png";
-import img30shine from "../../static/image/30shine.png";
-import imgYody from "../../static/image/yody.png";
-import huyentrang from "../../static/image/huyentrang.png";
+import imgZsneaker from "@/assets/image/portfolio-01.png";
+import img30shine from "@/assets/image/30shine.png";
+import imgYody from "@/assets/image/yody.png";
+import huyentrang from "@/assets/image/huyentrang.png";
 
 export const imgArr = [
   {

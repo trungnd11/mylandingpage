@@ -6,13 +6,13 @@ import {
   useImperativeHandle,
   useState,
 } from "react";
-import { ThemeContext } from "../../components/ContextTheme/ContextTheme";
+import { ThemeContext } from "@/components/ContextTheme/ContextTheme";
 import { bounceInDown, fadeInRight, fadeInLeft } from "react-animations";
 import styled, { keyframes, css } from "styled-components";
 import { InView } from "react-intersection-observer";
 import { serviceArr } from "./ServicesData";
-import { OffsetModel } from "../../model/OffsetModel";
-import { offsetDefault } from "../../components/container/Container";
+import { OffsetModel } from "@/model/OffsetModel";
+import { offsetDefault } from "@/components/container/Container";
 
 const tilte = keyframes`${bounceInDown}`;
 const rightInAnimation = keyframes`${fadeInRight}`;

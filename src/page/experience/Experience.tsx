@@ -8,9 +8,9 @@ import {
 import { InView } from "react-intersection-observer";
 import { fadeInLeft, fadeInRight } from "react-animations";
 import styled, { keyframes, css } from "styled-components";
-import { ThemeContext } from "../../components/ContextTheme/ContextTheme";
-import { OffsetModel } from "../../model/OffsetModel";
-import { offsetDefault } from "../../components/container/Container";
+import { ThemeContext } from "@/components/ContextTheme/ContextTheme";
+import { OffsetModel } from "@/model/OffsetModel";
+import { offsetDefault } from "@/components/container/Container";
 
 const leftInAnimation = keyframes`${fadeInLeft}`;
 const rightInAnimation = keyframes`${fadeInRight}`;

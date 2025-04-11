@@ -3,7 +3,7 @@ import { zoomInDown, fadeInLeft, fadeInRight } from "react-animations";
 import { InView } from "react-intersection-observer";
 import styled, { keyframes, css } from "styled-components";
 import { imgArr } from "./PortfolioData"
-import { ThemeContext } from "../../components/ContextTheme/ContextTheme";
+import { ThemeContext } from "@/components/ContextTheme/ContextTheme";
 
 const leftInAnimation = keyframes`${fadeInLeft}`;
 const rightInAnimation = keyframes`${fadeInRight}`;
@@ -27,7 +27,7 @@ const RightContent = styled.div`
 function Portfolio(prop, ref) {
 
   const [listImg, setListImg] = useState(imgArr);
-  const [tabActive, settabActive] = useState({
+  const [tabActive, setTabActive] = useState({
     all: true,
     fullStack: false,
     frontend: false,
@@ -54,7 +54,7 @@ function Portfolio(prop, ref) {
 
   const filterAll = () => {
     setListImg(imgArr);
-    settabActive({
+    setTabActive({
       all: true,
       fullStack: false,
       frontend: false,
@@ -64,7 +64,7 @@ function Portfolio(prop, ref) {
 
   const filterFullstack = () => {
     setListImg(imgArr.filter((item) => item.type === "fullstack"));
-    settabActive({
+    setTabActive({
       all: false,
       fullStack: true,
       frontend: false,
@@ -74,7 +74,7 @@ function Portfolio(prop, ref) {
 
   const filterFrontend = () => {
     setListImg(imgArr.filter((item) => item.type === "frontend"));
-    settabActive({
+    setTabActive({
       all: false,
       fullStack: false,
       frontend: true,
@@ -84,7 +84,7 @@ function Portfolio(prop, ref) {
 
   const filterBackend = () => {
     setListImg(imgArr.filter((item) => item.type === "backend"));
-    settabActive({
+    setTabActive({
       all: false,
       fullStack: false,
       frontend: false,

@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useContext } from "react";
-import { ThemeContext } from "../../components/ContextTheme/ContextTheme";
+import { ThemeContext } from "@/components/ContextTheme/ContextTheme";
 
 export default function NavigateMobile() {
   const { theme } = useContext(ThemeContext);

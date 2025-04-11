@@ -27,7 +27,7 @@ $colorWhite: #fff;
       text-align: center;
       padding: 30px 15px;
       padding-bottom: 15px;
-      background-image: url(../../static/image/map.png);
+      background-image: url(../image/map.png);
       background-position: -880px -150px;
       .img {
         position: relative;
@@ -166,7 +166,7 @@ $colorWhite: #fff;
         font-weight: 600;
       }
     }
-    
+
     @include Responsive(XS) {
       display: none;
     }

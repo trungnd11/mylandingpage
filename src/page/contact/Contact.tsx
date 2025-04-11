@@ -2,9 +2,9 @@ import { forwardRef, useContext, useEffect, useImperativeHandle, useState } from
 import styled, { keyframes, css } from "styled-components";
 import { InView } from "react-intersection-observer";
 import { bounceIn } from "react-animations";
-import { ThemeContext } from "../../components/ContextTheme/ContextTheme";
-import { OffsetModel } from "../../model/OffsetModel";
-import { offsetDefault } from "../../components/container/Container";
+import { ThemeContext } from "@/components/ContextTheme/ContextTheme";
+import { OffsetModel } from "@/model/OffsetModel";
+import { offsetDefault } from "@/components/container/Container";
 
 const Animation = keyframes`${bounceIn}`;
 

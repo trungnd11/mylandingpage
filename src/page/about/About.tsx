@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import avatar from "../../static/image/avatar3.jpeg";
+import avatar from "@/assets/image/avatar3.jpg";
 import {
   forwardRef,
   useContext,
@@ -11,10 +11,10 @@ import {
 import { InView } from "react-intersection-observer";
 import { rotateInDownRight, rotateInDownLeft } from "react-animations";
 import styled, { keyframes, css } from "styled-components";
-import { ThemeContext } from "../../components/ContextTheme/ContextTheme";
-import { OffsetModel } from "../../model/OffsetModel";
-import { offsetDefault } from "../../components/container/Container";
-import { getAgeByYearOfBirth } from "../../helpper/helpper";
+import { ThemeContext } from "@/components/ContextTheme/ContextTheme";
+import { OffsetModel } from "@/model/OffsetModel";
+import { offsetDefault } from "@/components/container/Container";
+import { getAgeByYearOfBirth } from "@/helpper/helpper";
 
 const leftInAnimation = keyframes`${rotateInDownLeft}`;
 const rightInAnimation = keyframes`${rotateInDownRight}`;

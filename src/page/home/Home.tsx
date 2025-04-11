@@ -4,9 +4,9 @@ import { forwardRef, useContext, useEffect, useImperativeHandle, useRef, useStat
 import { zoomInUp } from "react-animations";
 import styled, { keyframes, css } from "styled-components";
 import { InView } from "react-intersection-observer";
-import { ThemeContext } from '../../components/ContextTheme/ContextTheme';
-import { OffsetModel } from '../../model/OffsetModel';
-import { offsetDefault } from '../../components/container/Container';
+import { ThemeContext } from '@/components/ContextTheme/ContextTheme';
+import { OffsetModel } from '@/model/OffsetModel';
+import { offsetDefault } from '@/components/container/Container';
 
 const titleInAnimation = keyframes`${zoomInUp}`;
 

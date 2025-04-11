@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useEffect, useState, useRef, useContext } from "react";
-import avatar from "../../static/image/avatar.jpg";
+import avatar from "@/assets/image/avatar.jpg";
 import Home from "../../page/home/Home";
 import About from "../../page/about/About";
 import Experience from "../../page/experience/Experience";
@@ -333,7 +333,7 @@ export default function Container() {
             <i className="fa-brands fa-github" />
             Github
           </div>
-          <div 
+          <div
             className="btn gitlab"
             onClick={() => handleNavigate("https://gitlab.com/trungnd11")}
           >
