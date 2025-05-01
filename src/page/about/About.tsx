@@ -15,6 +15,8 @@ import { ThemeContext } from "@/components/ContextTheme/ContextTheme";
 import { OffsetModel } from "@/model/OffsetModel";
 import { offsetDefault } from "@/components/container/Container";
 import { getAgeByYearOfBirth } from "@/helpper/helpper";
+import {useGetAbout} from "@/page/about/hooks/useGetAbout";
+import parse from 'html-react-parser';
 
 const leftInAnimation = keyframes`${rotateInDownLeft}`;
 const rightInAnimation = keyframes`${rotateInDownRight}`;
@@ -33,6 +35,8 @@ function About(prop: any, ref: any) {
   const aboutRef = useRef<HTMLDivElement>(null);
   const [offset, setOffset] = useState<OffsetModel>(offsetDefault);
 
+  const { about } = useGetAbout();
+
   useImperativeHandle(ref, () => offset, [offset]);
 
   useEffect(() => {
@@ -49,7 +53,7 @@ function About(prop: any, ref: any) {
         <div ref={ref} className="about-container">
           <div ref={aboutRef} id="about" className="about-wapper">
             <Image animate={inView} className="about-img">
-              <img src={avatar} alt="" />
+              <img src={about?.avatarUrl} alt={about?.name} />
             </Image>
             <Info animate={inView} className="about-content">
               <div className="section-heading">
@@ -57,31 +61,25 @@ function About(prop: any, ref: any) {
                   <h2>About Me</h2>
                 </Info>
                 <h6 className={`${theme === "dark" && "title-dark"}`}>
-                  I am Full-Stack Web Developer
+                  { about?.title }
                 </h6>
               </div>
               <div className="content-description">
-                <p>I am love programing and new technologies.</p>
-                <p>
-                  I always spend my free time learning new technologies to
-                  upgrade myself to be a senior programmer. And, I want to learn
-                  and improve my knowledge through a professional working
-                  environment.
-                </p>
+                { parse(about?.description ?? "") }
               </div>
               <hr />
               <ul className="about-info">
                 <li>
-                  <span>Name:</span> <p>Nguyen Dinh Trung</p>
+                  <span>Name:</span> <p>{ about?.name }</p>
                 </li>
                 <li>
                   <span>Email:</span>
                   <p>
                     <a
                       className={`${theme === "dark" && "title-dark"}`}
-                      href="mailto:trung.dn9500@gmail.com"
+                      href={`mailto:${about?.email}`}
                     >
-                      trung.dn9500@gmail.com
+                      { about?.email }
                     </a>
                   </p>
                 </li>
@@ -89,7 +87,7 @@ function About(prop: any, ref: any) {
                   <span>Age:</span> <p>{ getAgeByYearOfBirth(1995) }</p>
                 </li>
                 <li>
-                  <span>From:</span> <p>Hanoi</p>
+                  <span>From:</span> <p>{ about?.from }</p>
                 </li>
               </ul>
               <div className="wapper-btn">

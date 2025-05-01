@@ -4,15 +4,19 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import ContextTheme from './components/ContextTheme/ContextTheme';
+import {QueryClientProvider} from "@tanstack/react-query";
+import queryClient from "@/configs/reactQueryConfig";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <ContextTheme>
-      <App />
-    </ContextTheme>
+    <QueryClientProvider client={queryClient}>
+      <ContextTheme>
+        <App />
+      </ContextTheme>
+    </QueryClientProvider>
   </React.StrictMode>
 );
 
