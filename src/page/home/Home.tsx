@@ -167,7 +167,7 @@ function Home(prop: any, ref: any) {
   }, []);
 
   return (
-    <InView>
+    <InView triggerOnce={true}>
       {({ ref, inView }) => (
         <div ref={ref} id="home" className="wapper-home">
           <div className="water-effect jquery-ripples">

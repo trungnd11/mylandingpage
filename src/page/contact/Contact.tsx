@@ -29,7 +29,7 @@ function Contact(prop:any, ref:any) {
     }
   }, []);
   return (
-    <InView>
+    <InView triggerOnce={true}>
       {({ ref, inView }) => (
         <ContactAnimate animate={inView} ref={ref} id="contact" className="wapper-contact">
           <div className="container">

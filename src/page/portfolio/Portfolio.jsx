@@ -97,7 +97,7 @@ function Portfolio(prop, ref) {
   }
 
   return (
-    <InView>
+    <InView triggerOnce={true}>
       {({ref, inView}) => (
         <div ref={ref}>
           <div id="project" className={`wapper-portfolio ${theme === "dark" && "wapper-portfolio-dark"}`}>

@@ -51,7 +51,7 @@ function About(prop: any, ref: any) {
   }, []);
 
   return (
-    <InView>
+    <InView triggerOnce={true}>
       {({ ref, inView }) => (
         <div ref={ref} className="about-container">
           <div ref={aboutRef} id="about" className="about-wapper">

@@ -50,7 +50,7 @@ function Services(prop: any, ref: any) {
   }, []);
 
   return (
-    <InView>
+    <InView triggerOnce={true}>
       {({ ref, inView }) => (
         <div ref={ref} id="services" className="wapper-service">
           <div className="container">

@@ -42,7 +42,7 @@ function Experience(_prop: any, ref: any) {
   }, []);
 
   return (
-    <InView>
+    <InView triggerOnce={true}>
       {({ ref, inView }) => (
         <div
           ref={ref}
