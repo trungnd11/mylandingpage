@@ -1,0 +1,26 @@
+$skeleton-start: #e2e2e2;
+$skeleton-mid: #f5f5f5;
+
+.text-skeleton {
+  .skeleton-line {
+    background: linear-gradient(
+                    90deg,
+                    $skeleton-start 25%,
+                    $skeleton-mid 50%,
+                    $skeleton-start 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}

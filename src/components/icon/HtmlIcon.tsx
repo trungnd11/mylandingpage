@@ -1,5 +1,5 @@
 import React from 'react';
-import { PropsIcon } from '../../interface/IconInterface';
+import { PropsIcon } from './interfaces/IconInterface';
 
 const HtmlIcon: React.FC<PropsIcon> = ({ className }) => (
   <svg
