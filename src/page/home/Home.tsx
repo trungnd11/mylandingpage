@@ -16,8 +16,9 @@ const Content = styled.div`
 `;
 
 function Home(prop: any, ref: any) {
-  const height = screen.height / 1.5;
+  const [height, setHeight] = useState(window.innerHeight / 1.5);
   const width = screen.width <= 820 ? screen.width : (screen.width * 80) / 100;
+  const prevSize = useRef({ width: 0, height: 0 });
   const { theme } = useContext(ThemeContext);
   const [offset, setOffset] = useState<OffsetModel>(offsetDefault);
 
@@ -26,6 +27,15 @@ function Home(prop: any, ref: any) {
   useImperativeHandle(ref, () => offset, [offset]);
 
   useEffect(() => {
+    if (
+      prevSize.current.width === width &&
+      prevSize.current.height === height
+    ) {
+      return;
+    }
+
+    prevSize.current = { width, height };
+
     const canvas: any = document.querySelector("#canvas");
     const context = canvas.getContext("2d");
     const H = height;
@@ -156,6 +166,26 @@ function Home(prop: any, ref: any) {
   }, [height, width]);
 
   useEffect(() => {
+    const updateHeight = () => {
+      const innerHeight = window.visualViewport
+        ? window.visualViewport.height
+        : window.innerHeight;
+
+      setHeight(innerHeight / 1.5);
+    };
+
+    updateHeight();
+
+    window.visualViewport?.addEventListener("resize", updateHeight);
+    window.addEventListener("orientationchange", updateHeight);
+
+    return () => {
+      window.visualViewport?.removeEventListener("resize", updateHeight);
+      window.removeEventListener("orientationchange", updateHeight);
+    };
+  }, []);
+
+  useEffect(() => {
     const offsetDiv: HTMLDivElement | any =
       document.getElementById("home");
     if (offsetDiv) {
@@ -169,7 +199,7 @@ function Home(prop: any, ref: any) {
   return (
     <InView triggerOnce={true}>
       {({ ref, inView }) => (
-        <div ref={ref} id="home" className="wapper-home">
+        <div ref={ref} id="home" className="wapper-home" style={{ height: `${height}px` }}>
           <div className="water-effect jquery-ripples">
             <canvas
               ref={canvasRef}

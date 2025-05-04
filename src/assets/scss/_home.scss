@@ -5,7 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh / 1.5 + 70px);
+  height: calc(100dvh / 1.5);
   .content {
     position: relative;
     z-index: 1;
@@ -50,7 +50,7 @@
       animation: opacityChange 9s infinite alternate;
       transition: 0.6s;
     }
-  
+
     h5 {
       margin: 0;
       font-size: 18px;
@@ -310,12 +310,10 @@
   }
 
   @include Responsive(XS) {
-    height: calc(100vh / 1.5);
     position: relative;
   }
 
   @include Responsive(SM) {
-    height: calc(100vh / 1.5);
     position: relative;
   }
 }
