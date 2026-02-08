@@ -23,12 +23,12 @@ export const serviceArr = [
   },
   {
     name: "Java(Spring boot)",
-    description: "2 year",
+    description: "Use it proficiently",
     icon: <JavaIcon />,
   },
   {
     name: "Angular",
-    description: "1 year",
+    description: "Use it proficiently",
     icon: <AngularIcon />,
   },
   {

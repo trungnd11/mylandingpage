@@ -7,6 +7,7 @@ import { InView } from "react-intersection-observer";
 import { ThemeContext } from '@/components/ContextTheme/ContextTheme';
 import { OffsetModel } from '@/model/OffsetModel';
 import { offsetDefault } from '@/components/container/Container';
+import {calculateYearsOfExperience} from "@/helpper/helpper";
 
 const titleInAnimation = keyframes`${zoomInUp}`;
 
@@ -229,9 +230,9 @@ function Home(prop: any, ref: any) {
               </span>
             </h1>
             <p>
-              I'm a Full-Stack Web Developer with extensive experience for over
-              5 years. My expertise is to create and design Websites, Wallet, ERP for
-              Enterprise and many more...
+              {`I'm a Full-Stack Web Developer with extensive experience for over
+              ${calculateYearsOfExperience(2017)} years. My expertise is to create and design Websites, Wallet, ERP for
+              Enterprise and many more...`}
             </p>
             <div className="wapper-btn">
               <a

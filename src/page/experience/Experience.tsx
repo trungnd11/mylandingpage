@@ -11,6 +11,7 @@ import styled, { keyframes, css } from "styled-components";
 import { ThemeContext } from "@/components/ContextTheme/ContextTheme";
 import { OffsetModel } from "@/model/OffsetModel";
 import { offsetDefault } from "@/components/container/Container";
+import {calculateYearsOfExperience} from "@/helpper/helpper";
 
 const leftInAnimation = keyframes`${fadeInLeft}`;
 const rightInAnimation = keyframes`${fadeInRight}`;
@@ -54,7 +55,7 @@ function Experience(_prop: any, ref: any) {
           <div className="container">
             <Content animate={inView} className="exp-content">
               <h5 className={`subtitle ${theme === "dark" && "subtitle-dark"}`}>
-                <Content animate={inView}>Having 6 years Experience</Content>
+                <Content animate={inView}>{`Having ${calculateYearsOfExperience(2017)} years Experience`}</Content>
               </h5>
               <h3>
                 Amazing <span>experience</span> with those companies
@@ -73,27 +74,7 @@ function Experience(_prop: any, ref: any) {
                     theme === "dark" && "icon-dark"
                   }`}
                 ></i>
-                <h4>Foxcom</h4> <h6>2014 - 2015</h6>
-              </div>
-              <div
-                className={`exp-block ${theme === "dark" && "exp-block-dark"}`}
-              >
-                <i
-                  className={`fa-solid fa-building ${
-                    theme === "dark" && "icon-dark"
-                  }`}
-                ></i>
-                <h4>Canon</h4> <h6>2016 - 3 months</h6>
-              </div>
-              <div
-                className={`exp-block ${theme === "dark" && "exp-block-dark"}`}
-              >
-                <i
-                  className={`fa-solid fa-building ${
-                    theme === "dark" && "icon-dark"
-                  }`}
-                ></i>
-                <h4>Samsung</h4> <h6>2016 - 2019</h6>
+                <h4>Samsung</h4> <h6>2017 - 2019</h6>
               </div>
               <div
                 className={`exp-block ${theme === "dark" && "exp-block-dark"}`}
